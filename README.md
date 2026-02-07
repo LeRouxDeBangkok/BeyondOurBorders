@@ -21,7 +21,7 @@
 
 | Member | Role | Socials |
 | :--- | :--- | :--- |
-| **Romain** | Developer / Artist | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/LeRouxDeBangkok) [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram&logoColor=white)](https://instagram.com/LeRouxDeBangkok) |
+| **Romain** | Developer / Artist | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/LeRouxDeBangkok) |
 | **Marine** | Lead Developer | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/Marine2bria) [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram&logoColor=white)](https://instagram.com/marine2b_ria) |
 | **Nixuge** | Developer | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/Nixuge) |
 | **Maxence Valere** | Developer / Custom Music Composer | [Email](mailto:maxence.valere@epita.fr) |
