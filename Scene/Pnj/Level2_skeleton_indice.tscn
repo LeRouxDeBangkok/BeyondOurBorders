@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://bp31u4s7wowt2"]
+
+[ext_resource type="Script" path="res://Script/NPC/NpcBase.cs" id="1_idhcp"]
+[ext_resource type="Texture2D" uid="uid://bcbjr3vogbpdt" path="res://Assets/Imported/Monster_Creatures_Fantasy(Version 1.3)/Monster_Creatures_Fantasy(Version 1.3)/Skeleton/SkeletteIdle1.png" id="2_iocmi"]
+[ext_resource type="Texture2D" uid="uid://dckp1gdaowy4f" path="res://Assets/Imported/Monster_Creatures_Fantasy(Version 1.3)/Monster_Creatures_Fantasy(Version 1.3)/Skeleton/SkeletteIdle2.png" id="3_eaew4"]
+[ext_resource type="FontFile" uid="uid://y41r1ic44gvs" path="res://Assets/Fonts/Kenney Mini Square Mono.ttf" id="4_beb58"]
+[ext_resource type="Script" path="res://Script/NPC/Types/MushroomNpcDialog.cs" id="5_sae5g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0yg4"]
+atlas = ExtResource("2_iocmi")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxo1n"]
+atlas = ExtResource("3_eaew4")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1gqu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0yg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxo1n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7ode"]
+size = Vector2(904, 162.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hsu1j"]
+
+[node name="Mushroom_pnj" type="CharacterBody2D"]
+z_index = -1
+script = ExtResource("1_idhcp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(27, -7.99994)
+scale = Vector2(0.875, 0.875)
+sprite_frames = SubResource("SpriteFrames_p1gqu")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.125871
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(10, -13)
+shape = SubResource("RectangleShape2D_f7ode")
+debug_color = Color(0.702859, 0.393387, 0.757402, 0.42)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -146.0
+offset_top = -168.0
+offset_right = 151.0
+offset_bottom = -104.0
+theme_override_fonts/normal_font = ExtResource("4_beb58")
+bbcode_enabled = true
+text = "[center]Press \"E\"
+I heard you need to press two buttons to get out of here
+I tried getting out but one of them is hidden deep in a tight cave
+If only I had a friend who was smaller...
+ "
+script = ExtResource("5_sae5g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hsu1j")
+disabled = true

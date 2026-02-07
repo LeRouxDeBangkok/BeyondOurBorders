@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BatWing" load_steps=3 format=3 uid="uid://bmuh3mdg07v12"]
+
+[ext_resource type="Script" path="res://Script/Item/BatWing.cs" id="1_suffo"]
+[ext_resource type="Texture2D" uid="uid://xqh4fn8nrxik" path="res://Assets/Custom/Items/BatWing.PNG" id="1_x7hwm"]
+
+[resource]
+script = ExtResource("1_suffo")
+HealAmount = -1
+ID = 4
+Name = "Bat Wing"
+ResourcePath = ""
+Icon = ExtResource("1_x7hwm")
+Quantity = 1
+StackSize = 10
+IsStackable = true

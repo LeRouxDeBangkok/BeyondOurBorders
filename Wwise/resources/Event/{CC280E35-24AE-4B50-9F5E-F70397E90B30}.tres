@@ -1,0 +1,7 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://d0i3pbsgpl6ha"]
+
+[resource]
+name = "OnClick"
+id = 21544190
+guid = "{CC280E35-24AE-4B50-9F5E-F70397E90B30}"
+dummy = true

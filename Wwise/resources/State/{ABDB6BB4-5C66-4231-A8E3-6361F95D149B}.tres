@@ -1,0 +1,11 @@
+[gd_resource type="WwiseState" load_steps=2 format=3 uid="uid://7bt7tk0r6rlw"]
+
+[ext_resource type="WwiseStateGroup" uid="uid://3kgb2o3s7v3t" path="res://Wwise/resources/State Group/{FF988D01-BFB7-4AFE-9BF9-6D4E8D848A1B}.tres" id="1_jfoes"]
+
+[resource]
+group_ref = ExtResource("1_jfoes")
+group_id = 1045871717
+name = "InMenu"
+id = 3374585465
+guid = "{ABDB6BB4-5C66-4231-A8E3-6361F95D149B}"
+dummy = true

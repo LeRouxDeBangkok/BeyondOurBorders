@@ -1,0 +1,11 @@
+[gd_resource type="WwiseState" load_steps=2 format=3 uid="uid://bisymyxc3r082"]
+
+[ext_resource type="WwiseStateGroup" uid="uid://cevrrewdofeta" path="res://Wwise/resources/State Group/{D340776F-20D9-4625-ACB9-87D2AD6EBB8D}.tres" id="1_17byu"]
+
+[resource]
+group_ref = ExtResource("1_17byu")
+group_id = 3285234865
+name = "Discovery"
+id = 3663283413
+guid = "{D9FD0A1F-253F-49DC-832A-D954377C7AB9}"
+dummy = true

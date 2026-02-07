@@ -1,0 +1,7 @@
+[gd_resource type="WwiseRTPC" format=3 uid="uid://cfvw06rmrf1uw"]
+
+[resource]
+name = "Volume"
+id = 2415836739
+guid = "{4DB18EBC-94B4-4E6A-A264-CE5BA22F65B5}"
+dummy = true

@@ -1,0 +1,7 @@
+[gd_resource type="WwiseRTPC" format=3 uid="uid://c7v4kwwri3ab6"]
+
+[resource]
+name = "CombatIntensity"
+id = 1253610732
+guid = "{197CE1E9-8127-4809-BC4B-835929397EB0}"
+dummy = true

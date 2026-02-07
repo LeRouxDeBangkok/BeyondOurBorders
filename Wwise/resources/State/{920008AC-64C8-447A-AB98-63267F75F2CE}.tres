@@ -1,0 +1,11 @@
+[gd_resource type="WwiseState" load_steps=2 format=3 uid="uid://dwqtxro3yby0a"]
+
+[ext_resource type="WwiseStateGroup" uid="uid://3kgb2o3s7v3t" path="res://Wwise/resources/State Group/{FF988D01-BFB7-4AFE-9BF9-6D4E8D848A1B}.tres" id="1_x5f8o"]
+
+[resource]
+group_ref = ExtResource("1_x5f8o")
+group_id = 1045871717
+name = "InGame"
+id = 984691642
+guid = "{920008AC-64C8-447A-AB98-63267F75F2CE}"
+dummy = true

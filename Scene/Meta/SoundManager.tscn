@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://byiepn5p1wlup"]
+
+[ext_resource type="WwiseEvent" uid="uid://bb2o8ujbeat6a" path="res://Wwise/resources/Event/{DE9A0271-EDAD-4EB8-96BC-E5D3549274E8}.tres" id="1_d2i7f"]
+[ext_resource type="Script" path="res://Scene/Meta/node.gd" id="2_bonh4"]
+[ext_resource type="WwiseEvent" uid="uid://d0i3pbsgpl6ha" path="res://Wwise/resources/Event/{CC280E35-24AE-4B50-9F5E-F70397E90B30}.tres" id="3_4muti"]
+[ext_resource type="WwiseRTPC" uid="uid://cfvw06rmrf1uw" path="res://Wwise/resources/Game Parameter/{4DB18EBC-94B4-4E6A-A264-CE5BA22F65B5}.tres" id="3_svv6w"]
+[ext_resource type="WwiseRTPC" uid="uid://c7v4kwwri3ab6" path="res://Wwise/resources/Game Parameter/{197CE1E9-8127-4809-BC4B-835929397EB0}.tres" id="5_lfd4u"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AkEvent2D" type="AkEvent2D" parent="."]
+event = ExtResource("1_d2i7f")
+trigger_on = 1
+
+[node name="AkListener2D" type="AkListener2D" parent="."]
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("2_bonh4")
+OnClickEvent = ExtResource("3_4muti")
+rtpcVolume = ExtResource("3_svv6w")
+rtpcCombat = ExtResource("5_lfd4u")
+
+[connection signal="music_sync_beat" from="AkEvent2D" to="Node" method="_on_ak_event_2d_music_sync_beat"]

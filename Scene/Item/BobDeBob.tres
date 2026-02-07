@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BobDeBob" load_steps=2 format=3 uid="uid://bskwd0p8gts4"]
+
+[ext_resource type="Script" path="res://Script/Item/BobDeBob.cs" id="1_hlr07"]
+
+[resource]
+script = ExtResource("1_hlr07")
+ID = 0
+Name = ""
+ResourcePath = ""
+Quantity = 0
+StackSize = 0
+IsStackable = false

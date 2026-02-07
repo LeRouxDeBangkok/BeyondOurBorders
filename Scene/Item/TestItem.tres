@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dxa7nqnkep2aa"]
+
+[ext_resource type="Texture2D" uid="uid://7q4fry3l41tl" path="res://Scene/Item/Barrier_29_JE2_BE2.png" id="1_cdep6"]
+[ext_resource type="Script" path="res://Script/Item/Item.cs" id="1_l5yro"]
+
+[resource]
+script = ExtResource("1_l5yro")
+ID = 0
+Name = "TestItem"
+ResourcePath = "<null>"
+Icon = ExtResource("1_cdep6")
+Quantity = 1
+StackSize = 5
+IsStackable = true

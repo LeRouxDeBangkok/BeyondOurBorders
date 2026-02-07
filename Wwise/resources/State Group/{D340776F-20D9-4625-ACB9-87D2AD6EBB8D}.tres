@@ -1,0 +1,7 @@
+[gd_resource type="WwiseStateGroup" format=3 uid="uid://cevrrewdofeta"]
+
+[resource]
+name = "PlayerState"
+id = 3285234865
+guid = "{D340776F-20D9-4625-ACB9-87D2AD6EBB8D}"
+dummy = true

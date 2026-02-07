@@ -1,0 +1,103 @@
+[gd_scene load_steps=15 format=3 uid="uid://d2thxinyjj053"]
+
+[ext_resource type="Script" path="res://Script/NPC/NpcBase.cs" id="1_bgh58"]
+[ext_resource type="Texture2D" uid="uid://211f8oycmap0" path="res://Assets/Custom/ChampiEnSlip/ChampiEnSlipSequence.PNG" id="2_puycn"]
+[ext_resource type="FontFile" uid="uid://y41r1ic44gvs" path="res://Assets/Fonts/Kenney Mini Square Mono.ttf" id="3_glicg"]
+[ext_resource type="Script" path="res://Script/NPC/Types/MushroomNpcDialog.cs" id="4_vp7da"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yya0"]
+atlas = ExtResource("2_puycn")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pjha"]
+atlas = ExtResource("2_puycn")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol4ag"]
+atlas = ExtResource("2_puycn")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anr2v"]
+atlas = ExtResource("2_puycn")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpv0o"]
+atlas = ExtResource("2_puycn")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy7j3"]
+atlas = ExtResource("2_puycn")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62338"]
+atlas = ExtResource("2_puycn")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1gqu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yya0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pjha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol4ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anr2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpv0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy7j3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62338")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7ode"]
+size = Vector2(904, 162.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hsu1j"]
+
+[node name="Mushroom_pnj" type="CharacterBody2D"]
+script = ExtResource("1_bgh58")
+ShouldBeFlipped = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -74)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_p1gqu")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.125871
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(10, -13)
+shape = SubResource("RectangleShape2D_f7ode")
+debug_color = Color(0.702859, 0.393387, 0.757402, 0.42)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -178.0
+offset_top = -136.0
+offset_right = 102.0
+offset_bottom = -90.0
+theme_override_fonts/normal_font = ExtResource("3_glicg")
+text = "Press \"E\"
+I got here before you! But I'm lost now.
+I wish my underwear had a map...
+ "
+script = ExtResource("4_vp7da")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hsu1j")
+disabled = true

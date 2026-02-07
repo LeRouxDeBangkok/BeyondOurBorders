@@ -1,0 +1,105 @@
+[gd_scene load_steps=15 format=3 uid="uid://bhcb1p7uprxb1"]
+
+[ext_resource type="Script" path="res://Script/NPC/NpcBase.cs" id="1_awbxt"]
+[ext_resource type="Texture2D" uid="uid://u5xyv5tcgr8q" path="res://Assets/Imported/Forest_Monsters_FREE/Mushroom/Mushroom without VFX/Mushroom-Idle.png" id="2_hv3x3"]
+[ext_resource type="FontFile" uid="uid://y41r1ic44gvs" path="res://Assets/Fonts/Kenney Mini Square Mono.ttf" id="3_k8hdc"]
+[ext_resource type="Script" path="res://Script/NPC/Types/MushroomNpcDialog.cs" id="4_bvqpx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e6nm"]
+atlas = ExtResource("2_hv3x3")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hw87"]
+atlas = ExtResource("2_hv3x3")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwlxv"]
+atlas = ExtResource("2_hv3x3")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7cft"]
+atlas = ExtResource("2_hv3x3")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjgoi"]
+atlas = ExtResource("2_hv3x3")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekxsq"]
+atlas = ExtResource("2_hv3x3")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t6y0"]
+atlas = ExtResource("2_hv3x3")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1gqu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e6nm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hw87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwlxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7cft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjgoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekxsq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t6y0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7ode"]
+size = Vector2(904, 162.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hsu1j"]
+
+[node name="Mushroom_pnj" type="CharacterBody2D"]
+z_index = -1
+script = ExtResource("1_awbxt")
+ShouldBeFlipped = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -74)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_p1gqu")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.125871
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(10, -13)
+shape = SubResource("RectangleShape2D_f7ode")
+debug_color = Color(0.702859, 0.393387, 0.757402, 0.42)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -67.0
+offset_top = -393.0
+offset_right = 472.0
+offset_bottom = -255.0
+theme_override_fonts/normal_font = ExtResource("3_k8hdc")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]HELPPP
+HOW DID I GET STUCK HERE ?
+ "
+script = ExtResource("4_bvqpx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hsu1j")
+disabled = true

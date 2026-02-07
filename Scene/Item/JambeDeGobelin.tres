@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="JambeDeGobelin" load_steps=3 format=3 uid="uid://dq5r7vgymt4ec"]
+
+[ext_resource type="Texture2D" uid="uid://n1trh3a0ymjn" path="res://Assets/Custom/Items/IMG_1129.PNG" id="1_ewjtp"]
+[ext_resource type="Script" path="res://Script/Item/JambeDeGobelin.cs" id="2_qxena"]
+
+[resource]
+script = ExtResource("2_qxena")
+IncreaseSpeedAmout = 10
+ID = 1
+Name = "Goblin's Leg"
+ResourcePath = "<null>"
+Icon = ExtResource("1_ewjtp")
+Quantity = 1
+StackSize = 5
+IsStackable = true

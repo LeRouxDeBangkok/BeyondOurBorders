@@ -1,0 +1,7 @@
+[gd_resource type="WwiseRTPC" format=3 uid="uid://cb5af57i8bykc"]
+
+[resource]
+name = "SFXVolume"
+id = 988953028
+guid = "{769B4C8E-2DF2-48A9-8153-91E56CE3598C}"
+dummy = true

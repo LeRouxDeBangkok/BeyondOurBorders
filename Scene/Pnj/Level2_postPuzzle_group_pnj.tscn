@@ -1,0 +1,153 @@
+[gd_scene load_steps=20 format=3 uid="uid://cle08rhb084r2"]
+
+[ext_resource type="Script" path="res://Script/NPC/NpcBase.cs" id="1_26okn"]
+[ext_resource type="Texture2D" uid="uid://u5xyv5tcgr8q" path="res://Assets/Imported/Forest_Monsters_FREE/Mushroom/Mushroom without VFX/Mushroom-Idle.png" id="2_fg1pr"]
+[ext_resource type="FontFile" uid="uid://y41r1ic44gvs" path="res://Assets/Fonts/Kenney Mini Square Mono.ttf" id="3_wln32"]
+[ext_resource type="Script" path="res://Script/NPC/Types/GroupNPCDialogue.cs" id="4_q3j73"]
+[ext_resource type="Texture2D" uid="uid://bcbjr3vogbpdt" path="res://Assets/Imported/Monster_Creatures_Fantasy(Version 1.3)/Monster_Creatures_Fantasy(Version 1.3)/Skeleton/SkeletteIdle1.png" id="5_f7tcm"]
+[ext_resource type="Texture2D" uid="uid://dckp1gdaowy4f" path="res://Assets/Imported/Monster_Creatures_Fantasy(Version 1.3)/Monster_Creatures_Fantasy(Version 1.3)/Skeleton/SkeletteIdle2.png" id="6_yse8i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e6nm"]
+atlas = ExtResource("2_fg1pr")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hw87"]
+atlas = ExtResource("2_fg1pr")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwlxv"]
+atlas = ExtResource("2_fg1pr")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7cft"]
+atlas = ExtResource("2_fg1pr")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjgoi"]
+atlas = ExtResource("2_fg1pr")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekxsq"]
+atlas = ExtResource("2_fg1pr")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t6y0"]
+atlas = ExtResource("2_fg1pr")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1gqu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e6nm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hw87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwlxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7cft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjgoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekxsq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t6y0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7ode"]
+size = Vector2(904, 162.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hsu1j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ritjv"]
+atlas = ExtResource("5_f7tcm")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whsb3"]
+atlas = ExtResource("6_yse8i")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_41dpj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ritjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whsb3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Mushroom_pnj" type="CharacterBody2D"]
+script = ExtResource("1_26okn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -74)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_p1gqu")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.125871
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(10, -13)
+shape = SubResource("RectangleShape2D_f7ode")
+debug_color = Color(0.702859, 0.393387, 0.757402, 0.42)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -172.0
+offset_top = -157.0
+offset_right = 242.0
+offset_bottom = -90.0
+theme_override_fonts/normal_font = ExtResource("3_wln32")
+bbcode_enabled = true
+text = "Press \"E\"
+You got the mechanism working? 
+It's been a long time since anyone did that.
+What's with your crappy sword? You won't stand a chance.
+Here,  use that shiny new one instead.
+() => GiveSword
+"
+script = ExtResource("4_q3j73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hsu1j")
+disabled = true
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(126, -74)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_p1gqu")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.125871
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(192, -83)
+scale = Vector2(1.09766, 1.09766)
+sprite_frames = SubResource("SpriteFrames_41dpj")
+autoplay = "default"
+flip_h = true
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(-138, -75)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_p1gqu")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.125871

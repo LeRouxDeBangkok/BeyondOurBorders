@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://c77exlfocy6t6"]
+
+[ext_resource type="Texture2D" uid="uid://b1h21fh40nyff" path="res://Assets/Imported/MushroomBoss/Ball.PNG" id="1_38u3c"]
+[ext_resource type="Script" path="res://Script/Weapons/Ball.cs" id="1_fkd7j"]
+[ext_resource type="Script" path="res://Script/Triggers/HitArea.cs" id="2_566di"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_of35n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_38u3c")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wjioc"]
+radius = 46.0435
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0180"]
+radius = 47.5184
+
+[node name="Ball" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 17
+script = ExtResource("1_fkd7j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.999997, -3)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_of35n")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wjioc")
+
+[node name="HitZone" type="Area2D" parent="."]
+script = ExtResource("2_566di")
+Damage = 999999999
+DoDamageToEnemies = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone"]
+shape = SubResource("CircleShape2D_u0180")
+debug_color = Color(0.951373, 0.162089, 0.387088, 0.42)

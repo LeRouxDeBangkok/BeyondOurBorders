@@ -1,0 +1,873 @@
+[gd_scene load_steps=20 format=3 uid="uid://co05c4830k1m7"]
+
+[ext_resource type="Script" path="res://Script/Menu/MainMenuController.cs" id="1_ml1wu"]
+[ext_resource type="Texture2D" uid="uid://bie0eltmhkst1" path="res://Assets/Custom/Background/New Project-2.png" id="2_i352w"]
+[ext_resource type="Texture2D" uid="uid://cua3wqp7xbwnb" path="res://Assets/Custom/Background/ChatGPT Image 13 mai 2025, 00_29_16.png" id="3_0s5br"]
+[ext_resource type="Script" path="res://Script/Menu/Components/MainPage.cs" id="3_3on0h"]
+[ext_resource type="Texture2D" uid="uid://8kfqhjmc2lrs" path="res://Assets/Custom/Bouton/Bouton.png" id="3_tobfk"]
+[ext_resource type="FontFile" uid="uid://y41r1ic44gvs" path="res://Assets/Fonts/Kenney Mini Square Mono.ttf" id="4_ak08b"]
+[ext_resource type="Texture2D" uid="uid://cdqpksil1clig" path="res://Assets/Custom/Logo/Logo Bob.png" id="6_8lo3s"]
+[ext_resource type="Script" path="res://Script/Menu/Components/SettingsPage.cs" id="7_61gro"]
+[ext_resource type="Script" path="res://Script/Menu/Components/QuitConfirmationPage.cs" id="8_bed0v"]
+[ext_resource type="Script" path="res://Script/Menu/Components/SaveSelectionPage.cs" id="9_1nnsf"]
+[ext_resource type="FontFile" uid="uid://kwkfl72ttep8" path="res://Assets/Custom/1/fonts/PixelOperator8.ttf" id="9_k16aq"]
+[ext_resource type="Texture2D" uid="uid://pydl28rwjf12" path="res://Assets/Custom/Bouton/BigButton.png" id="10_yj8f2"]
+[ext_resource type="Texture2D" uid="uid://d2a1du1s6yx1t" path="res://Assets/Custom/Bob_static.png" id="11_lp04t"]
+[ext_resource type="Texture2D" uid="uid://cuwgtts7yhq3y" path="res://Assets/Custom/BobBlackSprites/Bob_static.png" id="12_ak1tb"]
+[ext_resource type="Script" path="res://Script/Menu/Components/NewSaveConfirmationPage.cs" id="13_3r7sw"]
+[ext_resource type="Script" path="res://Script/Menu/Components/SaveDeleteConfirmationPage.cs" id="14_y2xhj"]
+[ext_resource type="Script" path="res://Script/Menu/Components/JoinHostIpPortSelectionPage.cs" id="16_rdbu1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vcaka"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_epjq6"]
+font_size = 48
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_ml1wu")
+
+[node name="Background3" type="TextureRect" parent="."]
+visible = false
+offset_left = -638.0
+offset_top = -376.0
+offset_right = 1922.0
+offset_bottom = 1064.0
+texture = ExtResource("2_i352w")
+stretch_mode = 2
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -638.0
+offset_top = -376.0
+offset_right = 1926.0
+offset_bottom = 1061.0
+texture = ExtResource("3_0s5br")
+
+[node name="MainPage" type="Node2D" parent="."]
+visible = false
+script = ExtResource("3_3on0h")
+
+[node name="Logo" type="TextureRect" parent="MainPage"]
+offset_left = 128.0
+offset_top = 138.0
+offset_right = 3548.0
+offset_bottom = 545.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_8lo3s")
+
+[node name="Play" type="Button" parent="MainPage"]
+offset_left = 69.0
+offset_top = 378.0
+offset_right = 398.0
+offset_bottom = 541.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="MainPage/Play"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 30.0
+offset_right = 311.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="Button" parent="MainPage"]
+offset_left = 471.0
+offset_top = 375.0
+offset_right = 800.0
+offset_bottom = 538.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="MainPage/Settings"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 30.0
+offset_right = 309.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="Button" parent="MainPage"]
+offset_left = 883.0
+offset_top = 379.0
+offset_right = 1212.0
+offset_bottom = 542.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="MainPage/Exit"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 30.0
+offset_right = 309.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsPage" type="Node2D" parent="."]
+visible = false
+script = ExtResource("7_61gro")
+
+[node name="Back" type="Button" parent="SettingsPage"]
+offset_left = 475.0
+offset_top = 466.0
+offset_right = 804.0
+offset_bottom = 629.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="SettingsPage/Back"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 30.0
+offset_right = 311.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Go back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="SettingsPage"]
+offset_left = 286.0
+offset_top = 335.0
+offset_right = 592.0
+offset_bottom = 352.0
+value = 100.0
+
+[node name="Label" type="Label" parent="SettingsPage/VolumeSlider"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -81.0
+offset_right = 176.0
+offset_bottom = -4.0
+theme_override_fonts/font = ExtResource("9_k16aq")
+theme_override_font_sizes/font_size = 33
+text = "Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="SettingsPage"]
+offset_left = 725.0
+offset_top = 334.0
+offset_right = 974.0
+offset_bottom = 353.0
+value = 100.0
+
+[node name="Label" type="Label" parent="SettingsPage/SFXSlider"]
+layout_mode = 0
+offset_left = -52.0
+offset_top = -81.0
+offset_right = 130.0
+offset_bottom = -4.0
+theme_override_fonts/font = ExtResource("9_k16aq")
+theme_override_font_sizes/font_size = 33
+text = "SFX
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitConfirmPage" type="Node2D" parent="."]
+visible = false
+script = ExtResource("8_bed0v")
+
+[node name="No" type="Button" parent="QuitConfirmPage"]
+offset_left = 661.0
+offset_top = 328.0
+offset_right = 1102.0
+offset_bottom = 524.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="QuitConfirmPage/No"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 24.0
+offset_right = 416.0
+offset_bottom = 174.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "No"
+label_settings = SubResource("LabelSettings_vcaka")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Yes" type="Button" parent="QuitConfirmPage"]
+offset_left = 138.0
+offset_top = 330.0
+offset_right = 579.0
+offset_bottom = 526.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="QuitConfirmPage/Yes"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 24.0
+offset_right = 416.0
+offset_bottom = 174.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "YES"
+label_settings = SubResource("LabelSettings_vcaka")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="QuitConfirmPage"]
+offset_left = 70.0
+offset_top = 27.0
+offset_right = 1216.0
+offset_bottom = 187.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="QuitConfirmPage/ColorRect"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 65.0
+offset_top = 28.0
+offset_right = 1073.0
+offset_bottom = 130.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Are you sure you wanna exit?"
+label_settings = SubResource("LabelSettings_epjq6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveSelectionPage" type="Node2D" parent="."]
+visible = false
+script = ExtResource("9_1nnsf")
+
+[node name="Save1" type="Button" parent="SaveSelectionPage"]
+offset_left = 13.0
+offset_top = 7.0
+offset_right = 750.0
+offset_bottom = 156.0
+size_flags_horizontal = 4
+icon = ExtResource("10_yj8f2")
+flat = true
+expand_icon = true
+
+[node name="Clear" type="Button" parent="SaveSelectionPage/Save1"]
+layout_mode = 0
+offset_left = 589.0
+offset_top = 7.0
+offset_right = 853.0
+offset_bottom = 142.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="SaveSelectionPage/Save1/Clear"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 26.0
+offset_right = 266.0
+offset_bottom = 114.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Clear"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="SaveSelectionPage/Save1"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 105.0
+offset_top = 25.0
+offset_right = 701.0
+offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Save 1- checkpoint
+xx:xx playtime"
+vertical_alignment = 1
+
+[node name="ExistingSaveIcon" type="TextureRect" parent="SaveSelectionPage/Save1"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 25.0
+offset_right = 93.0
+offset_bottom = 118.0
+texture = ExtResource("11_lp04t")
+
+[node name="EmptySaveIcon" type="TextureRect" parent="SaveSelectionPage/Save1"]
+visible = false
+layout_mode = 0
+offset_left = 41.0
+offset_top = 24.0
+offset_right = 93.0
+offset_bottom = 117.0
+texture = ExtResource("12_ak1tb")
+
+[node name="Save2" type="Button" parent="SaveSelectionPage"]
+offset_left = 15.0
+offset_top = 146.0
+offset_right = 752.0
+offset_bottom = 295.0
+size_flags_horizontal = 4
+icon = ExtResource("10_yj8f2")
+flat = true
+expand_icon = true
+
+[node name="Clear" type="Button" parent="SaveSelectionPage/Save2"]
+layout_mode = 0
+offset_left = 589.0
+offset_top = 7.0
+offset_right = 853.0
+offset_bottom = 142.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="SaveSelectionPage/Save2/Clear"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 26.0
+offset_right = 266.0
+offset_bottom = 114.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Clear"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="SaveSelectionPage/Save2"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 105.0
+offset_top = 25.0
+offset_right = 706.0
+offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Save 2- checkpoint
+xx:xx playtime"
+vertical_alignment = 1
+
+[node name="ExistingSaveIcon" type="TextureRect" parent="SaveSelectionPage/Save2"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 25.0
+offset_right = 93.0
+offset_bottom = 118.0
+texture = ExtResource("11_lp04t")
+
+[node name="EmptySaveIcon" type="TextureRect" parent="SaveSelectionPage/Save2"]
+visible = false
+layout_mode = 0
+offset_left = 41.0
+offset_top = 24.0
+offset_right = 93.0
+offset_bottom = 117.0
+texture = ExtResource("12_ak1tb")
+
+[node name="Save3" type="Button" parent="SaveSelectionPage"]
+offset_left = 18.0
+offset_top = 287.0
+offset_right = 755.0
+offset_bottom = 436.0
+size_flags_horizontal = 4
+icon = ExtResource("10_yj8f2")
+flat = true
+expand_icon = true
+
+[node name="Clear" type="Button" parent="SaveSelectionPage/Save3"]
+layout_mode = 0
+offset_left = 589.0
+offset_top = 7.0
+offset_right = 853.0
+offset_bottom = 142.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="SaveSelectionPage/Save3/Clear"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 26.0
+offset_right = 266.0
+offset_bottom = 114.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Clear"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="SaveSelectionPage/Save3"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 105.0
+offset_top = 25.0
+offset_right = 699.0
+offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Save 3- checkpoint
+xx:xx playtime"
+vertical_alignment = 1
+
+[node name="ExistingSaveIcon" type="TextureRect" parent="SaveSelectionPage/Save3"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 25.0
+offset_right = 93.0
+offset_bottom = 118.0
+texture = ExtResource("11_lp04t")
+
+[node name="EmptySaveIcon" type="TextureRect" parent="SaveSelectionPage/Save3"]
+visible = false
+layout_mode = 0
+offset_left = 41.0
+offset_top = 24.0
+offset_right = 93.0
+offset_bottom = 117.0
+texture = ExtResource("12_ak1tb")
+
+[node name="Save4" type="Button" parent="SaveSelectionPage"]
+offset_left = 19.0
+offset_top = 423.0
+offset_right = 756.0
+offset_bottom = 572.0
+size_flags_horizontal = 4
+icon = ExtResource("10_yj8f2")
+flat = true
+expand_icon = true
+
+[node name="Clear" type="Button" parent="SaveSelectionPage/Save4"]
+layout_mode = 0
+offset_left = 589.0
+offset_top = 7.0
+offset_right = 853.0
+offset_bottom = 142.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="SaveSelectionPage/Save4/Clear"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 26.0
+offset_right = 266.0
+offset_bottom = 114.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Clear"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="SaveSelectionPage/Save4"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 105.0
+offset_top = 25.0
+offset_right = 700.0
+offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Save 4- checkpoint
+xx:xx playtime"
+vertical_alignment = 1
+
+[node name="ExistingSaveIcon" type="TextureRect" parent="SaveSelectionPage/Save4"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 25.0
+offset_right = 93.0
+offset_bottom = 118.0
+texture = ExtResource("11_lp04t")
+
+[node name="EmptySaveIcon" type="TextureRect" parent="SaveSelectionPage/Save4"]
+visible = false
+layout_mode = 0
+offset_left = 41.0
+offset_top = 24.0
+offset_right = 93.0
+offset_bottom = 117.0
+texture = ExtResource("12_ak1tb")
+
+[node name="Save5" type="Button" parent="SaveSelectionPage"]
+offset_left = 19.0
+offset_top = 556.0
+offset_right = 756.0
+offset_bottom = 705.0
+size_flags_horizontal = 4
+icon = ExtResource("10_yj8f2")
+flat = true
+expand_icon = true
+
+[node name="Clear" type="Button" parent="SaveSelectionPage/Save5"]
+layout_mode = 0
+offset_left = 589.0
+offset_top = 7.0
+offset_right = 853.0
+offset_bottom = 142.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="SaveSelectionPage/Save5/Clear"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 26.0
+offset_right = 266.0
+offset_bottom = 114.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Clear"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="SaveSelectionPage/Save5"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 105.0
+offset_top = 25.0
+offset_right = 701.0
+offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Save 5- checkpoint
+xx:xx playtime"
+vertical_alignment = 1
+
+[node name="ExistingSaveIcon" type="TextureRect" parent="SaveSelectionPage/Save5"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 25.0
+offset_right = 93.0
+offset_bottom = 118.0
+texture = ExtResource("11_lp04t")
+
+[node name="EmptySaveIcon" type="TextureRect" parent="SaveSelectionPage/Save5"]
+visible = false
+layout_mode = 0
+offset_left = 41.0
+offset_top = 24.0
+offset_right = 93.0
+offset_bottom = 117.0
+texture = ExtResource("12_ak1tb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SaveSelectionPage"]
+offset_left = 881.0
+offset_top = 60.0
+offset_right = 1264.0
+offset_bottom = 478.0
+theme_override_fonts/normal_font = ExtResource("4_ak08b")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center]Choose your save
+
+or"
+
+[node name="JoinMultiplayer" type="Button" parent="SaveSelectionPage"]
+offset_left = 911.0
+offset_top = 492.0
+offset_right = 1256.0
+offset_bottom = 651.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="SaveSelectionPage/JoinMultiplayer"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 24.0
+offset_top = 30.0
+offset_right = 321.0
+offset_bottom = 130.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "join hosted
+game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewSaveConfirmationPage" type="Node2D" parent="."]
+visible = false
+script = ExtResource("13_3r7sw")
+
+[node name="No" type="Button" parent="NewSaveConfirmationPage"]
+offset_left = 661.0
+offset_top = 328.0
+offset_right = 1102.0
+offset_bottom = 524.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="NewSaveConfirmationPage/No"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 24.0
+offset_right = 416.0
+offset_bottom = 174.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "No"
+label_settings = SubResource("LabelSettings_vcaka")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Yes" type="Button" parent="NewSaveConfirmationPage"]
+offset_left = 138.0
+offset_top = 330.0
+offset_right = 579.0
+offset_bottom = 526.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="NewSaveConfirmationPage/Yes"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 24.0
+offset_right = 416.0
+offset_bottom = 174.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "YES"
+label_settings = SubResource("LabelSettings_vcaka")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="NewSaveConfirmationPage"]
+offset_left = 70.0
+offset_top = 27.0
+offset_right = 1216.0
+offset_bottom = 243.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="NewSaveConfirmationPage/ColorRect"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 50.0
+offset_top = -5.0
+offset_right = 1097.0
+offset_bottom = 226.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Are you sure you want to create a new save ?"
+label_settings = SubResource("LabelSettings_epjq6")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SaveDeleteConfirmationPage" type="Node2D" parent="."]
+visible = false
+script = ExtResource("14_y2xhj")
+
+[node name="No" type="Button" parent="SaveDeleteConfirmationPage"]
+offset_left = 661.0
+offset_top = 328.0
+offset_right = 1102.0
+offset_bottom = 524.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="SaveDeleteConfirmationPage/No"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 24.0
+offset_right = 416.0
+offset_bottom = 174.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "No"
+label_settings = SubResource("LabelSettings_vcaka")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Yes" type="Button" parent="SaveDeleteConfirmationPage"]
+offset_left = 138.0
+offset_top = 330.0
+offset_right = 579.0
+offset_bottom = 526.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="SaveDeleteConfirmationPage/Yes"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 24.0
+offset_right = 416.0
+offset_bottom = 174.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "YES"
+label_settings = SubResource("LabelSettings_vcaka")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="SaveDeleteConfirmationPage"]
+offset_left = 70.0
+offset_top = 27.0
+offset_right = 1216.0
+offset_bottom = 243.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="SaveDeleteConfirmationPage/ColorRect"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 50.0
+offset_top = -5.0
+offset_right = 1097.0
+offset_bottom = 226.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Are you sure you want to delete this save?"
+label_settings = SubResource("LabelSettings_epjq6")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="JoinHostIpPortSelectionPage" type="Node2D" parent="."]
+visible = false
+script = ExtResource("16_rdbu1")
+
+[node name="ColorRect" type="ColorRect" parent="JoinHostIpPortSelectionPage"]
+offset_left = 58.0
+offset_top = 60.0
+offset_right = 1204.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="JoinHostIpPortSelectionPage/ColorRect"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 65.0
+offset_top = 28.0
+offset_right = 1073.0
+offset_bottom = 130.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 36
+text = "Please enter the ip and port
+of the remote server"
+label_settings = SubResource("LabelSettings_epjq6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JoinThisServer" type="Button" parent="JoinHostIpPortSelectionPage"]
+offset_left = 173.0
+offset_top = 525.0
+offset_right = 1072.0
+offset_bottom = 719.0
+size_flags_horizontal = 4
+icon = ExtResource("10_yj8f2")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="JoinHostIpPortSelectionPage/JoinThisServer"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 32.0
+offset_top = 25.0
+offset_right = 866.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("4_ak08b")
+theme_override_font_sizes/font_size = 50
+text = "Join this server"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IpButton" type="Button" parent="JoinHostIpPortSelectionPage"]
+offset_left = 85.0
+offset_top = 290.0
+offset_right = 603.0
+offset_bottom = 502.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="TextEdit" type="TextEdit" parent="JoinHostIpPortSelectionPage/IpButton"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 25.0
+offset_right = 478.0
+offset_bottom = 187.0
+theme_override_font_sizes/font_size = 70
+placeholder_text = "Full IP"
+
+[node name="PortButton" type="Button" parent="JoinHostIpPortSelectionPage"]
+offset_left = 648.0
+offset_top = 290.0
+offset_right = 1166.0
+offset_bottom = 502.0
+size_flags_horizontal = 4
+icon = ExtResource("3_tobfk")
+flat = true
+expand_icon = true
+
+[node name="TextEdit" type="TextEdit" parent="JoinHostIpPortSelectionPage/PortButton"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 25.0
+offset_right = 478.0
+offset_bottom = 187.0
+theme_override_font_sizes/font_size = 100
+placeholder_text = "Port"
+
+[connection signal="pressed" from="MainPage/Play" to="MainPage" method="OnPlayPressed"]
+[connection signal="pressed" from="MainPage/Settings" to="MainPage" method="OnSettingsPressed"]
+[connection signal="pressed" from="MainPage/Exit" to="MainPage" method="OnExitPressed"]
+[connection signal="pressed" from="SettingsPage/Back" to="SettingsPage" method="OnGoBackPressed"]
+[connection signal="changed" from="SettingsPage/VolumeSlider" to="SettingsPage" method="OnVolumeSliderValueChanged"]
+[connection signal="pressed" from="QuitConfirmPage/No" to="QuitConfirmPage" method="OnNoPressed"]
+[connection signal="pressed" from="QuitConfirmPage/Yes" to="QuitConfirmPage" method="OnYesPressed"]
+[connection signal="pressed" from="SaveSelectionPage/JoinMultiplayer" to="SaveSelectionPage" method="OnJoinHostedClick"]
+[connection signal="pressed" from="NewSaveConfirmationPage/No" to="NewSaveConfirmationPage" method="OnNoPressed"]
+[connection signal="pressed" from="NewSaveConfirmationPage/Yes" to="NewSaveConfirmationPage" method="OnYesPressed"]
+[connection signal="pressed" from="SaveDeleteConfirmationPage/No" to="SaveDeleteConfirmationPage" method="OnNoPressed"]
+[connection signal="pressed" from="SaveDeleteConfirmationPage/Yes" to="SaveDeleteConfirmationPage" method="OnYesPressed"]
+[connection signal="pressed" from="JoinHostIpPortSelectionPage/JoinThisServer" to="JoinHostIpPortSelectionPage" method="OnJoinThisServerClick"]

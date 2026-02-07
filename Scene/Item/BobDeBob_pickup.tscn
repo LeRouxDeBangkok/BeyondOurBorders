@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://he3id6kla7qr"]
+
+[ext_resource type="Script" path="res://Script/Item/ItemPickup.cs" id="1_m5fg7"]
+[ext_resource type="Texture2D" uid="uid://gxs7kiwcebn3" path="res://Assets/Custom/BobDeBob/BobDeBob.PNG" id="2_gkdvm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hljb2"]
+
+[node name="ItemPickup" type="Node2D"]
+script = ExtResource("1_m5fg7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gkdvm")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_hljb2")

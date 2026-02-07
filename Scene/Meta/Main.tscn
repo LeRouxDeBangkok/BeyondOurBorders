@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1wys3k0huy86"]
+
+[ext_resource type="Script" path="res://Script/ClientData/Client.cs" id="1_8phrm"]
+[ext_resource type="Script" path="res://Script/ClientData/MultiplayerManager.cs" id="5_4uysy"]
+[ext_resource type="Script" path="res://Script/ClientData/GameData.cs" id="5_i5g2p"]
+[ext_resource type="Script" path="res://Script/ClientData/SaveHelper.cs" id="5_ydx7o"]
+[ext_resource type="PackedScene" uid="uid://co05c4830k1m7" path="res://Scene/Menu/accueil.tscn" id="6_illts"]
+[ext_resource type="PackedScene" uid="uid://dusj8muhsnwpw" path="res://Scene/Meta/Hud.tscn" id="6_tq48p"]
+[ext_resource type="PackedScene" uid="uid://byiepn5p1wlup" path="res://Scene/Meta/SoundManager.tscn" id="7_tpwy4"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_kl4vt"]
+properties/0/path = NodePath(".:LastCheckpoint")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:IsLevel2DoorOpen")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:IsLevel2FirstLeverTriggered")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:IsLevel2SecondLeverTriggered")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath(".:Abilities")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath(".:IsLevel4FirstLeverTriggered")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+properties/6/path = NodePath(".:IsLevel4SecondLeverTriggered")
+properties/6/spawn = true
+properties/6/replication_mode = 1
+properties/7/path = NodePath(".:IsLevel4DoorOpen")
+properties/7/spawn = true
+properties/7/replication_mode = 1
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_8phrm")
+metadata/_edit_vertical_guides_ = [-359.0]
+
+[node name="BobSwitchTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="ZoneSwitchTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Menu" parent="." instance=ExtResource("6_illts")]
+
+[node name="Hud" parent="." instance=ExtResource("6_tq48p")]
+
+[node name="SaveHelper" type="Node" parent="."]
+script = ExtResource("5_ydx7o")
+
+[node name="CurrentGameData" type="Node2D" parent="SaveHelper"]
+script = ExtResource("5_i5g2p")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="SaveHelper/CurrentGameData"]
+replication_config = SubResource("SceneReplicationConfig_kl4vt")
+
+[node name="MultiplayerManager" type="Node2D" parent="."]
+script = ExtResource("5_4uysy")
+
+[node name="SoundManager" parent="." instance=ExtResource("7_tpwy4")]

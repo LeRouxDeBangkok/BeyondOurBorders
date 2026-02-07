@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://205ti4sfg6rn"]
+
+[ext_resource type="Texture2D" uid="uid://bhd4gofnypim3" path="res://Assets/Custom/Bouton/backgroundMenu.png" id="2_ef4tu"]
+[ext_resource type="Texture2D" uid="uid://8kfqhjmc2lrs" path="res://Assets/Custom/Bouton/Bouton.png" id="2_ffv1k"]
+[ext_resource type="FontFile" uid="uid://y41r1ic44gvs" path="res://Assets/Fonts/Kenney Mini Square Mono.ttf" id="3_gcbor"]
+
+[node name="Controle" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ef4tu")
+
+[node name="Host" type="Button" parent="."]
+offset_left = 139.0
+offset_top = 315.0
+offset_right = 468.0
+offset_bottom = 478.0
+size_flags_horizontal = 4
+icon = ExtResource("2_ffv1k")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="Host"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 30.0
+offset_right = 309.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("3_gcbor")
+theme_override_font_sizes/font_size = 36
+text = "Host"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Join" type="Button" parent="."]
+offset_left = 477.0
+offset_top = 315.0
+offset_right = 806.0
+offset_bottom = 478.0
+size_flags_horizontal = 4
+icon = ExtResource("2_ffv1k")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="Join"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 30.0
+offset_right = 309.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("3_gcbor")
+theme_override_font_sizes/font_size = 36
+text = "Join"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+offset_left = 812.0
+offset_top = 315.0
+offset_right = 1141.0
+offset_bottom = 478.0
+size_flags_horizontal = 4
+icon = ExtResource("2_ffv1k")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="Start"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 30.0
+offset_right = 309.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("3_gcbor")
+theme_override_font_sizes/font_size = 36
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

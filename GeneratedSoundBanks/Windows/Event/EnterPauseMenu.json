@@ -1,0 +1,70 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3602428572",
+    "Type": "Event",
+    "GUID": "{3DBAC3E5-790F-4936-A2F2-7A3F24611906}",
+    "Language": "SFX",
+    "Hash": "{FBE0F402-CEC0-52EC-45D3-8979C25985A0}",
+    "ObjectPath": "EnterPauseMenu",
+    "ShortName": "EnterPauseMenu",
+    "Path": "Event/EnterPauseMenu.bnk",
+    "Events": [
+     {
+      "Id": "3602428572",
+      "Name": "EnterPauseMenu",
+      "ObjectPath": "\\Events\\Default Work Unit\\EnterPauseMenu",
+      "GUID": "{3DBAC3E5-790F-4936-A2F2-7A3F24611906}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "1045871717",
+        "Id": "3374585465",
+        "Name": "InMenu",
+        "ObjectPath": "\\States\\Default Work Unit\\GameStatus\\InMenu",
+        "GUID": "{ABDB6BB4-5C66-4231-A8E3-6361F95D149B}"
+       }
+      ]
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "1045871717",
+      "Name": "GameStatus",
+      "ObjectPath": "\\States\\Default Work Unit\\GameStatus",
+      "GUID": "{FF988D01-BFB7-4AFE-9BF9-6D4E8D848A1B}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\GameStatus\\None",
+        "GUID": "{D38DF784-5639-4F3C-9B85-3D53404DE3FC}"
+       },
+       {
+        "Id": "984691642",
+        "Name": "InGame",
+        "ObjectPath": "\\States\\Default Work Unit\\GameStatus\\InGame",
+        "GUID": "{920008AC-64C8-447A-AB98-63267F75F2CE}"
+       },
+       {
+        "Id": "3374585465",
+        "Name": "InMenu",
+        "ObjectPath": "\\States\\Default Work Unit\\GameStatus\\InMenu",
+        "GUID": "{ABDB6BB4-5C66-4231-A8E3-6361F95D149B}"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{6F327D0A-87D5-7D6E-3F79-554B818777B0}"
+ }
+}

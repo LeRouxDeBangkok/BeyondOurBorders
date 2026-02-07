@@ -1,0 +1,29 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3531603487	EnterMainMenu			\Default Work Unit\EnterMainMenu	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	662417162	NPC			\Default Work Unit\NPC	
+	1045871717	GameStatus			\Default Work Unit\GameStatus	
+	1780448749	Puzzle			\Default Work Unit\Puzzle	
+	3285234865	PlayerState			\Default Work Unit\PlayerState	
+
+State	ID	Name	State Group			Notes
+	748895195	None	NPC			
+	3168108838	NotTalking	NPC			
+	3375731105	Talking	NPC			
+	748895195	None	GameStatus			
+	984691642	InGame	GameStatus			
+	3374585465	InMenu	GameStatus			
+	748895195	None	Puzzle			
+	830272446	DoingPuzzle	Puzzle			
+	4192918885	NotDoingPuzzle	Puzzle			
+	290285391	Lobby	PlayerState			
+	748895195	None	PlayerState			
+	1308315758	DoubleJump	PlayerState			
+	1458596172	MegaPoing	PlayerState			
+	3663283413	Discovery	PlayerState			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1253610732	CombatIntensity			\Default Work Unit\CombatIntensity	
+	2415836739	Volume			\Default Work Unit\Volume	
+

@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpdhei0v2h6kv"]
+
+[ext_resource type="Texture2D" uid="uid://bcqv0esh4yu3d" path="res://Assets/Custom/petitBobSprites/FlechHD.png" id="1_382j2"]
+[ext_resource type="Script" path="res://Script/Weapons/Arrow.cs" id="1_r23lx"]
+[ext_resource type="Script" path="res://Script/Triggers/HitArea.cs" id="3_brgne"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uh8au"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_382j2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7nb3r"]
+size = Vector2(129, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uepya"]
+size = Vector2(198, 43)
+
+[node name="Arrow" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 14
+script = ExtResource("1_r23lx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uh8au")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.5, 0)
+shape = SubResource("RectangleShape2D_7nb3r")
+
+[node name="HitZone" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("3_brgne")
+Damage = 15
+DoDamageToPlayers = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone"]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_uepya")
+debug_color = Color(0.911495, 0.186662, 0.573124, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true

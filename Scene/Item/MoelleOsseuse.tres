@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MoelleOsseuse" load_steps=3 format=3 uid="uid://x66jeppu3ai3"]
+
+[ext_resource type="Texture2D" uid="uid://clkrahc0lucy8" path="res://Assets/Custom/Items/IMG_1131.PNG" id="1_mrqh8"]
+[ext_resource type="Script" path="res://Script/Item/MoelleOsseuse.cs" id="2_o0opo"]
+
+[resource]
+script = ExtResource("2_o0opo")
+AttackAmount = 10
+ID = 3
+Name = "Bone marrow"
+ResourcePath = "<null>"
+Icon = ExtResource("1_mrqh8")
+Quantity = 1
+StackSize = 5
+IsStackable = true

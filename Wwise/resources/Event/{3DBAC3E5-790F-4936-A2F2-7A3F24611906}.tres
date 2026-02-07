@@ -1,0 +1,7 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://dot8mmb6ke6j"]
+
+[resource]
+name = "EnterPauseMenu"
+id = 3602428572
+guid = "{3DBAC3E5-790F-4936-A2F2-7A3F24611906}"
+dummy = true

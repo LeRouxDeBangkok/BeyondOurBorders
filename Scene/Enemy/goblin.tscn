@@ -1,0 +1,211 @@
+[gd_scene load_steps=28 format=3 uid="uid://dk05o6upupgao"]
+
+[ext_resource type="Texture2D" uid="uid://7qu1f42e60fx" path="res://Assets/Imported/Monster_Creatures_Fantasy(Version 1.3)/Monster_Creatures_Fantasy(Version 1.3)/Goblin/Attack3.png" id="1_7rr4e"]
+[ext_resource type="Script" path="res://Script/Entities/Enemies/Goblin.cs" id="1_kxvvo"]
+[ext_resource type="Resource" uid="uid://dq5r7vgymt4ec" path="res://Scene/Item/JambeDeGobelin.tres" id="2_0605f"]
+[ext_resource type="PackedScene" uid="uid://ba6bjwshkeojp" path="res://Scene/Item/item_pickup.tscn" id="3_gtgbq"]
+[ext_resource type="Texture2D" uid="uid://bxbtlmqauoerc" path="res://Assets/Imported/Monster_Creatures_Fantasy(Version 1.3)/Monster_Creatures_Fantasy(Version 1.3)/Goblin/IMG_1124.PNG" id="3_p2y7f"]
+[ext_resource type="PackedScene" uid="uid://cabgqxuxao5u3" path="res://Scene/Weapons/EnemiesWeapons/bomb.tscn" id="4_e7uf4"]
+[ext_resource type="Script" path="res://Script/Triggers/HitArea.cs" id="5_403yj"]
+[ext_resource type="Script" path="res://Script/Entities/Enemies/EnemyGhettoSynchronizer.cs" id="5_fxtl8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0vcd"]
+atlas = ExtResource("1_7rr4e")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2r1hw"]
+atlas = ExtResource("1_7rr4e")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ovkl"]
+atlas = ExtResource("1_7rr4e")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ix1q"]
+atlas = ExtResource("1_7rr4e")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_niy5q"]
+atlas = ExtResource("1_7rr4e")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kn6l"]
+atlas = ExtResource("1_7rr4e")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn5de"]
+atlas = ExtResource("1_7rr4e")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr41s"]
+atlas = ExtResource("1_7rr4e")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3i72"]
+atlas = ExtResource("1_7rr4e")
+region = Rect2(1200, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnib8"]
+atlas = ExtResource("1_7rr4e")
+region = Rect2(1350, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5vst"]
+atlas = ExtResource("1_7rr4e")
+region = Rect2(1500, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en3gb"]
+atlas = ExtResource("1_7rr4e")
+region = Rect2(1650, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v146t"]
+atlas = ExtResource("1_7rr4e")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkpfw"]
+atlas = ExtResource("1_7rr4e")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ym80w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0vcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2r1hw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ovkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ix1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_niy5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kn6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn5de")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cr41s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3i72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnib8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5vst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en3gb")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_p2y7f")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v146t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkpfw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4uxty"]
+radius = 16.5
+height = 49.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eujid"]
+size = Vector2(403, 60.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_77afc"]
+radius = 22.0
+height = 66.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_cgupx"]
+properties/0/path = NodePath("AnimatedSprite2D:flip_h")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("AnimatedSprite2D:animation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:position")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("HitZone:Active")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("AnimatedSprite2D:frame")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath(".:CurrentHp")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+
+[node name="Goblin" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 15
+script = ExtResource("1_kxvvo")
+DroppableItem = ExtResource("2_0605f")
+ItemPickupScene = ExtResource("3_gtgbq")
+DropChancePercent = 50
+
+[node name="HitDelay" type="Timer" parent="."]
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -13)
+scale = Vector2(1.59333, 1.59333)
+sprite_frames = SubResource("SpriteFrames_ym80w")
+animation = &"damage"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 4)
+shape = SubResource("CapsuleShape2D_4uxty")
+debug_color = Color(0.960784, 0, 0.203922, 0.419608)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(173.5, 0.5)
+shape = SubResource("RectangleShape2D_eujid")
+
+[node name="HitZone" type="Area2D" parent="."]
+script = ExtResource("5_403yj")
+DoDamageToEnemies = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone"]
+position = Vector2(-1.5, 3.5)
+shape = SubResource("CapsuleShape2D_77afc")
+
+[node name="Weapon" parent="." instance=ExtResource("4_e7uf4")]
+position = Vector2(22, 2.5)
+scale = Vector2(1.5, 1.5)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_cgupx")
+script = ExtResource("5_fxtl8")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_body_exited"]

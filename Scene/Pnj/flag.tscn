@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://pxhf0a4aqrx7"]
+
+[ext_resource type="Texture2D" uid="uid://bjge74k6q2ex1" path="res://Assets/Custom/Flag/Flag1.png" id="1_lv4pi"]
+[ext_resource type="Script" path="res://Script/NPC/Types/CheckpointNpc.cs" id="1_n8b54"]
+[ext_resource type="Texture2D" uid="uid://daypwyuxpvc2l" path="res://Assets/Custom/Flag/Flag2.png" id="2_wm023"]
+[ext_resource type="Texture2D" uid="uid://5d6o1x7krdvt" path="res://Assets/Custom/Flag/Flag3.png" id="3_xaciv"]
+[ext_resource type="Texture2D" uid="uid://115bw5qqm1ux" path="res://Assets/Custom/Flag/Flag4.png" id="4_gvpe1"]
+[ext_resource type="FontFile" uid="uid://y41r1ic44gvs" path="res://Assets/Fonts/Kenney Mini Square Mono.ttf" id="6_kxsy8"]
+[ext_resource type="Script" path="res://Script/NPC/Types/CheckpointNpcDialog.cs" id="7_hp2ty"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uurt5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gvpe1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xaciv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wm023")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_lv4pi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wm023")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xaciv")
+}],
+"loop": true,
+"name": &"FlagBoop",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k0nn"]
+size = Vector2(317, 270)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebiyx"]
+size = Vector2(45, 127)
+
+[node name="Flag" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 14
+script = ExtResource("1_n8b54")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uurt5")
+animation = &"FlagBoop"
+frame_progress = 0.946005
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -117.0
+offset_top = -129.0
+offset_right = 117.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_fonts/normal_font = ExtResource("6_kxsy8")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Save
+() => SaveGame"
+script = ExtResource("7_hp2ty")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_4k0nn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 63.5)
+shape = SubResource("RectangleShape2D_ebiyx")
+
+[connection signal="body_entered" from="Area2D" to="." method="OnPlayerEnter"]
+[connection signal="body_exited" from="Area2D" to="." method="OnPlayerLeave"]

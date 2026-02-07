@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SoupeDeChampi" load_steps=3 format=3 uid="uid://w6iuhlre8gi4"]
+
+[ext_resource type="Texture2D" uid="uid://dcrw2x8lshvi1" path="res://Assets/Custom/Items/IMG_1130.PNG" id="1_diqvm"]
+[ext_resource type="Script" path="res://Script/Item/SoupeDeChampi.cs" id="1_kjobt"]
+
+[resource]
+script = ExtResource("1_kjobt")
+HealAmount = 10
+ID = 2
+Name = "Mushroom Stew"
+ResourcePath = "<null>"
+Icon = ExtResource("1_diqvm")
+Quantity = 1
+StackSize = 5
+IsStackable = true

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba6bjwshkeojp"]
+
+[ext_resource type="Script" path="res://Script/Item/ItemPickup.cs" id="1_t6sco"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hljb2"]
+
+[node name="ItemPickup" type="Node2D"]
+script = ExtResource("1_t6sco")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_hljb2")

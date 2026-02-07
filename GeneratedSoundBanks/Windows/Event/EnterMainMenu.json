@@ -1,0 +1,364 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3531603487",
+    "Type": "Event",
+    "GUID": "{DE9A0271-EDAD-4EB8-96BC-E5D3549274E8}",
+    "Language": "SFX",
+    "Hash": "{815ECAB1-5A33-FAE9-B578-AF8C2D931F00}",
+    "ObjectPath": "EnterMainMenu",
+    "ShortName": "EnterMainMenu",
+    "Path": "Event/EnterMainMenu.bnk",
+    "Media": [
+     {
+      "Id": "58212190",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "BOB 4-BBC Symphony Orchestra.wav",
+      "Path": "Media/58212190.wem",
+      "CachePath": "1F/{1F1F3397-DBEA-20CC-7936-DA2AF11A64CE}.wem"
+     },
+     {
+      "Id": "103172123",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "BOB 12-BBC Symphony Orchestra.wav",
+      "Path": "Media/103172123.wem",
+      "CachePath": "A8/{A83C2DFB-2772-CD69-9542-59AA21FFCC9C}.wem"
+     },
+     {
+      "Id": "159523276",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "BOB 3-BBC Symphony Orchestra.wav",
+      "Path": "Media/159523276.wem",
+      "CachePath": "CB/{CBED616D-4E86-ED02-3F57-D6F906B4FFD6}.wem"
+     },
+     {
+      "Id": "241199139",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "BOB 1-Kontakt 7.wav",
+      "Path": "Media/241199139.wem",
+      "CachePath": "78/{785B720B-6979-A5DF-CCF5-941D2B4E365C}.wem"
+     },
+     {
+      "Id": "260729544",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "BOB 14-BBC Symphony Orchestra.wav",
+      "Path": "Media/260729544.wem",
+      "CachePath": "92/{92F1F35C-F7B4-F55E-EBA3-2AD281B0C8AA}.wem"
+     },
+     {
+      "Id": "441253270",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "BOB 2-Maschine 2.wav",
+      "Path": "Media/441253270.wem",
+      "CachePath": "45/{45FCC319-8669-4F74-73E2-1FEA063797FA}.wem"
+     },
+     {
+      "Id": "555325601",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "BOB 8-BBC Symphony Orchestra.wav",
+      "Path": "Media/555325601.wem",
+      "CachePath": "51/{51567871-BAF4-041F-99E0-1D643716F59C}.wem"
+     },
+     {
+      "Id": "581240411",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "BOB 6-BBC Symphony Orchestra.wav",
+      "Path": "Media/581240411.wem",
+      "CachePath": "72/{72C3A660-F744-C87E-C490-1DD87F68C3AD}.wem"
+     },
+     {
+      "Id": "585712000",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "BOB 13-BBC Symphony Orchestra.wav",
+      "Path": "Media/585712000.wem",
+      "CachePath": "D2/{D28CD482-FB9A-A941-A527-E41C5C814BA1}.wem"
+     },
+     {
+      "Id": "592131168",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "BOB 7-Maschine 2.wav",
+      "Path": "Media/592131168.wem",
+      "CachePath": "68/{684FC2A1-2902-FCF6-128E-195CD4F475DF}.wem"
+     },
+     {
+      "Id": "601233085",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "BOB 10-BBC Symphony Orchestra.wav",
+      "Path": "Media/601233085.wem",
+      "CachePath": "F2/{F21C4E60-EE2B-4234-A5C6-658AEEBA5175}.wem"
+     },
+     {
+      "Id": "623863477",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "BOB 5-Kontakt 7.wav",
+      "Path": "Media/623863477.wem",
+      "CachePath": "5B/{5B1C962F-E22F-109F-A56B-38F2F74494CF}.wem"
+     },
+     {
+      "Id": "883508267",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "BOB 9-BBC Symphony Orchestra.wav",
+      "Path": "Media/883508267.wem",
+      "CachePath": "BE/{BEBE1A67-3F82-9D62-A8A4-CB578B2F636F}.wem"
+     },
+     {
+      "Id": "963372520",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Loose",
+      "ShortName": "BOB 11-BBC Symphony Orchestra.wav",
+      "Path": "Media/963372520.wem",
+      "CachePath": "85/{8567E792-CA2F-1D1B-7D77-F68F39ECEA71}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "3531603487",
+      "Name": "EnterMainMenu",
+      "ObjectPath": "\\Events\\Default Work Unit\\EnterMainMenu",
+      "GUID": "{DE9A0271-EDAD-4EB8-96BC-E5D3549274E8}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "58212190"
+       },
+       {
+        "Id": "103172123"
+       },
+       {
+        "Id": "159523276"
+       },
+       {
+        "Id": "241199139"
+       },
+       {
+        "Id": "260729544"
+       },
+       {
+        "Id": "441253270"
+       },
+       {
+        "Id": "555325601"
+       },
+       {
+        "Id": "581240411"
+       },
+       {
+        "Id": "585712000"
+       },
+       {
+        "Id": "592131168"
+       },
+       {
+        "Id": "601233085"
+       },
+       {
+        "Id": "623863477"
+       },
+       {
+        "Id": "883508267"
+       },
+       {
+        "Id": "963372520"
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "3285234865",
+        "Id": "290285391",
+        "Name": "Lobby",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\Lobby",
+        "GUID": "{0C44F6E8-EAFA-4C81-AF38-DFACE364F7D0}"
+       },
+       {
+        "GroupId": "1045871717",
+        "Id": "984691642",
+        "Name": "InGame",
+        "ObjectPath": "\\States\\Default Work Unit\\GameStatus\\InGame",
+        "GUID": "{920008AC-64C8-447A-AB98-63267F75F2CE}"
+       },
+       {
+        "GroupId": "662417162",
+        "Id": "3168108838",
+        "Name": "NotTalking",
+        "ObjectPath": "\\States\\Default Work Unit\\NPC\\NotTalking",
+        "GUID": "{2C34A97F-7725-4D5F-95E9-7FE6619076C1}"
+       },
+       {
+        "GroupId": "1780448749",
+        "Id": "4192918885",
+        "Name": "NotDoingPuzzle",
+        "ObjectPath": "\\States\\Default Work Unit\\Puzzle\\NotDoingPuzzle",
+        "GUID": "{6ABDAD9C-2294-4375-89BA-1316613101D6}"
+       }
+      ]
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "1253610732",
+      "Name": "CombatIntensity",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\CombatIntensity",
+      "GUID": "{197CE1E9-8127-4809-BC4B-835929397EB0}"
+     },
+     {
+      "Id": "2415836739",
+      "Name": "Volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Volume",
+      "GUID": "{4DB18EBC-94B4-4E6A-A264-CE5BA22F65B5}"
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "662417162",
+      "Name": "NPC",
+      "ObjectPath": "\\States\\Default Work Unit\\NPC",
+      "GUID": "{229E85DB-977C-4C6F-8C0F-795917FCCFED}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\NPC\\None",
+        "GUID": "{79697751-B74F-473C-8D20-9E2A9B80C87C}"
+       },
+       {
+        "Id": "3168108838",
+        "Name": "NotTalking",
+        "ObjectPath": "\\States\\Default Work Unit\\NPC\\NotTalking",
+        "GUID": "{2C34A97F-7725-4D5F-95E9-7FE6619076C1}"
+       },
+       {
+        "Id": "3375731105",
+        "Name": "Talking",
+        "ObjectPath": "\\States\\Default Work Unit\\NPC\\Talking",
+        "GUID": "{37BFBFF3-F4B3-4ECB-8447-5A9AF58AC53D}"
+       }
+      ]
+     },
+     {
+      "Id": "1045871717",
+      "Name": "GameStatus",
+      "ObjectPath": "\\States\\Default Work Unit\\GameStatus",
+      "GUID": "{FF988D01-BFB7-4AFE-9BF9-6D4E8D848A1B}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\GameStatus\\None",
+        "GUID": "{D38DF784-5639-4F3C-9B85-3D53404DE3FC}"
+       },
+       {
+        "Id": "984691642",
+        "Name": "InGame",
+        "ObjectPath": "\\States\\Default Work Unit\\GameStatus\\InGame",
+        "GUID": "{920008AC-64C8-447A-AB98-63267F75F2CE}"
+       },
+       {
+        "Id": "3374585465",
+        "Name": "InMenu",
+        "ObjectPath": "\\States\\Default Work Unit\\GameStatus\\InMenu",
+        "GUID": "{ABDB6BB4-5C66-4231-A8E3-6361F95D149B}"
+       }
+      ]
+     },
+     {
+      "Id": "1780448749",
+      "Name": "Puzzle",
+      "ObjectPath": "\\States\\Default Work Unit\\Puzzle",
+      "GUID": "{10479EE7-2D86-4CE8-BF63-0D0BBAA8ECEB}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Puzzle\\None",
+        "GUID": "{5B10BA31-5A46-496A-86BC-0CD27A9D4857}"
+       },
+       {
+        "Id": "830272446",
+        "Name": "DoingPuzzle",
+        "ObjectPath": "\\States\\Default Work Unit\\Puzzle\\DoingPuzzle",
+        "GUID": "{BA525033-3E60-436A-BE8A-D8121425F63B}"
+       },
+       {
+        "Id": "4192918885",
+        "Name": "NotDoingPuzzle",
+        "ObjectPath": "\\States\\Default Work Unit\\Puzzle\\NotDoingPuzzle",
+        "GUID": "{6ABDAD9C-2294-4375-89BA-1316613101D6}"
+       }
+      ]
+     },
+     {
+      "Id": "3285234865",
+      "Name": "PlayerState",
+      "ObjectPath": "\\States\\Default Work Unit\\PlayerState",
+      "GUID": "{D340776F-20D9-4625-ACB9-87D2AD6EBB8D}",
+      "States": [
+       {
+        "Id": "290285391",
+        "Name": "Lobby",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\Lobby",
+        "GUID": "{0C44F6E8-EAFA-4C81-AF38-DFACE364F7D0}"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\None",
+        "GUID": "{F2DBAC87-1C65-44EF-852C-F50E20A11444}"
+       },
+       {
+        "Id": "1308315758",
+        "Name": "DoubleJump",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\DoubleJump",
+        "GUID": "{9AF28060-4AF4-402C-83D6-F8231C385BF4}"
+       },
+       {
+        "Id": "1458596172",
+        "Name": "MegaPoing",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\MegaPoing",
+        "GUID": "{2D701E8C-E3B9-4523-BC57-31DEC09A8849}"
+       },
+       {
+        "Id": "3663283413",
+        "Name": "Discovery",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\Discovery",
+        "GUID": "{D9FD0A1F-253F-49DC-832A-D954377C7AB9}"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{17F02311-E97F-F7D7-2EC5-B69BDCD41350}"
+ }
+}

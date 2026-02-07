@@ -1,0 +1,240 @@
+[gd_scene load_steps=28 format=3 uid="uid://cfu1sauy7nuj0"]
+
+[ext_resource type="Script" path="res://Script/Entities/Players/SmallBob.cs" id="1_dcedi"]
+[ext_resource type="Texture2D" uid="uid://iqck0umj4plp" path="res://Assets/Custom/petitBobSprites/PetitBobAttack/PetitBobAttackSequence.png" id="2_b64va"]
+[ext_resource type="Script" path="res://Script/Camera/BetterCamera.cs" id="3_qpypp"]
+[ext_resource type="Texture2D" uid="uid://e0m8tiurbhi" path="res://Assets/Custom/petitBobSprites/PetitBobDamage/PetitBobDamage.PNG" id="3_vwysb"]
+[ext_resource type="Texture2D" uid="uid://d2bpytwu5ri6h" path="res://Assets/Custom/petitBobSprites/petitBob_Idle1.PNG" id="4_c3783"]
+[ext_resource type="Texture2D" uid="uid://b28wagleye671" path="res://Assets/Custom/petitBobSprites/PetitBobDash/PetitBobDash.PNG" id="4_wxiom"]
+[ext_resource type="Texture2D" uid="uid://di20fgfr70uv8" path="res://Assets/Custom/petitBobSprites/petitBob_Idle2.PNG" id="5_cugd8"]
+[ext_resource type="Texture2D" uid="uid://d0lfti872fqoj" path="res://Assets/Custom/petitBobSprites/petitBob_Idle3.PNG" id="6_8bwkx"]
+[ext_resource type="Texture2D" uid="uid://d2xk5qwr3jbxr" path="res://Assets/Custom/petitBobSprites/petitBob_Idle4.PNG" id="7_gptoi"]
+[ext_resource type="Texture2D" uid="uid://ghsk43u7a6r0" path="res://Assets/Custom/petitBobSprites/PetitBobJump/PetitBobJump.PNG" id="8_ge2d7"]
+[ext_resource type="Texture2D" uid="uid://crnra1hxp8qjy" path="res://Assets/Custom/petitBobSprites/petitBob_Run1.PNG" id="9_7uwj1"]
+[ext_resource type="Texture2D" uid="uid://bdbbrv1bqiqpp" path="res://Assets/Custom/petitBobSprites/petitBob_Run2.PNG" id="10_o1mc2"]
+[ext_resource type="Texture2D" uid="uid://d2apbgaly4kj7" path="res://Assets/Custom/petitBobSprites/petitBob_Run3.PNG" id="11_bryq8"]
+[ext_resource type="Texture2D" uid="uid://cufrgxfv7fcq" path="res://Assets/Custom/petitBobSprites/petitBob_Run4.PNG" id="12_suk2p"]
+[ext_resource type="Texture2D" uid="uid://dks075ck3l7wq" path="res://Assets/Custom/petitBobSprites/PetitBobWall/PetitBobWall.PNG" id="13_ab0es"]
+[ext_resource type="PackedScene" uid="uid://bpdhei0v2h6kv" path="res://Scene/Weapons/EnemiesWeapons/arrow.tscn" id="15_2ui8d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g7h4"]
+atlas = ExtResource("2_b64va")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rw62"]
+atlas = ExtResource("2_b64va")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2exh"]
+atlas = ExtResource("2_b64va")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hbiu"]
+atlas = ExtResource("2_b64va")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idf5t"]
+atlas = ExtResource("2_b64va")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u1uw"]
+atlas = ExtResource("2_b64va")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt8vb"]
+atlas = ExtResource("8_ge2d7")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fnt6k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g7h4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rw62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2exh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hbiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idf5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5u1uw")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vwysb")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wxiom")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_c3783")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cugd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8bwkx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gptoi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt8vb")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_7uwj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_o1mc2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bryq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_suk2p")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_ab0es")
+}],
+"loop": true,
+"name": &"wall",
+"speed": 5.0
+}]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_skuf4"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("AnimatedSprite2D:animation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("AnimatedSprite2D:frame")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("AnimatedSprite2D:flip_h")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("AnimatedSprite2D:rotation")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath(".:Zone")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nn6gh"]
+radius = 111.0
+height = 222.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dkvlf"]
+radius = 22.0386
+height = 80.7034
+
+[node name="SmallBob" type="CharacterBody2D"]
+position = Vector2(5, -27)
+scale = Vector2(1.089, 1.06563)
+collision_mask = 15
+script = ExtResource("1_dcedi")
+Zone = "TestMap"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+position = Vector2(-3.21396, 0.810963)
+scale = Vector2(2.09481, 2.01091)
+sprite_frames = SubResource("SpriteFrames_fnt6k")
+animation = &"run"
+speed_scale = 1.1
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_skuf4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(1.1, 1.1)
+position_smoothing_enabled = true
+script = ExtResource("3_qpypp")
+
+[node name="detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection"]
+position = Vector2(-5, 25)
+shape = SubResource("CapsuleShape2D_nn6gh")
+debug_color = Color(0, 0.64, 0.288, 0.223529)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 50.0
+target_desired_distance = 250.0
+avoidance_enabled = true
+
+[node name="NavigationAgentTimer" type="Timer" parent="NavigationAgent2D"]
+wait_time = 0.2
+
+[node name="ReviveTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HitDelay" type="Timer" parent="."]
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.101
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(-4.59137, 24.3987)
+target_position = Vector2(39.4858, 0)
+collision_mask = 4
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(-5.50964, 25.3371)
+target_position = Vector2(-40.404, -0.938416)
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.59137, 25.3371)
+shape = SubResource("CapsuleShape2D_dkvlf")
+
+[node name="Arrow" parent="." node_paths=PackedStringArray("_bob") instance=ExtResource("15_2ui8d")]
+visible = false
+position = Vector2(-23.8751, 37.5365)
+scale = Vector2(0.2, 0.2)
+_bob = NodePath("..")
+
+[connection signal="body_entered" from="detection" to="." method="OnBobAroundForRevive"]
+[connection signal="timeout" from="ReviveTimer" to="." method="OnReviveTimerDone"]

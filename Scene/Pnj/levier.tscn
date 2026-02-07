@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4c278xpiwnto"]
+
+[ext_resource type="Script" path="res://Script/NPC/PuzzleLevier.cs" id="1_qyw0y"]
+[ext_resource type="Texture2D" uid="uid://de6q5oovjh3fo" path="res://Assets/Custom/Bouton/Boutonpuzzle.png" id="2_4l3t0"]
+[ext_resource type="Script" path="res://Script/NPC/NpcDialog.cs" id="2_frd7h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28hfm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x54ru"]
+size = Vector2(252, 219)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2mm8"]
+atlas = ExtResource("2_4l3t0")
+region = Rect2(0, 0, 169, 97)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jao1q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2mm8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GrandLevier" type="CharacterBody2D"]
+light_mask = 16
+visibility_layer = 16
+script = ExtResource("1_qyw0y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_28hfm")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -40.0
+offset_top = -45.0
+offset_right = 42.0
+offset_bottom = -20.0
+text = "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+La coordination est la clef"
+script = ExtResource("2_frd7h")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_x54ru")
+debug_color = Color(0.595524, 0.506386, 0.556403, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(0.361686, 0.362113)
+sprite_frames = SubResource("SpriteFrames_jao1q")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -2.0
+offset_top = -24.0
+offset_right = 1.0
+offset_bottom = -21.0

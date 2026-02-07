@@ -1,0 +1,490 @@
+[gd_scene load_steps=32 format=3 uid="uid://dusj8muhsnwpw"]
+
+[ext_resource type="Script" path="res://Script/Overlay/Hud.cs" id="1_0hv2p"]
+[ext_resource type="Script" path="res://Script/Overlay/Components/AreaTitleComponent.cs" id="1_1iobo"]
+[ext_resource type="PackedScene" uid="uid://bflx65eitmsc7" path="res://Scene/Menu/generique.tscn" id="2_bg6p1"]
+[ext_resource type="Script" path="res://Script/Overlay/Components/DebugComponent.cs" id="2_n0hqd"]
+[ext_resource type="FontFile" uid="uid://y41r1ic44gvs" path="res://Assets/Fonts/Kenney Mini Square Mono.ttf" id="3_68pl5"]
+[ext_resource type="Script" path="res://Script/Overlay/Components/TransitionScreenComponent.cs" id="5_0b01o"]
+[ext_resource type="Texture2D" uid="uid://bn0vbhh3bf5m1" path="res://Assets/Custom/BobWhiteSprites/Bob_Run1.png" id="5_3t3sj"]
+[ext_resource type="Shader" path="res://Shaders/PauseMenuBackground.gdshader" id="6_8npgw"]
+[ext_resource type="Texture2D" uid="uid://bm5bpk6ej3il7" path="res://Assets/Custom/BobWhiteSprites/Bob_Run2.png" id="6_uxy3l"]
+[ext_resource type="Texture2D" uid="uid://duyt6ot6sqj33" path="res://Assets/Custom/BobWhiteSprites/Bob_Run3.png" id="7_dlnj1"]
+[ext_resource type="Texture2D" uid="uid://8kfqhjmc2lrs" path="res://Assets/Custom/Bouton/Bouton.png" id="7_f02ph"]
+[ext_resource type="Script" path="res://Script/Overlay/Components/PauseMenu.cs" id="7_wcj5n"]
+[ext_resource type="Texture2D" uid="uid://bwdwqrdem404c" path="res://Assets/Custom/BobWhiteSprites/Bob_Run4.png" id="8_7r3h2"]
+[ext_resource type="Script" path="res://Script/Overlay/Components/PauseMenuComponents/PauseMenuMainPage.cs" id="8_qlfrx"]
+[ext_resource type="FontFile" uid="uid://kwkfl72ttep8" path="res://Assets/Custom/1/fonts/PixelOperator8.ttf" id="8_sage2"]
+[ext_resource type="Script" path="res://Script/Overlay/Components/PauseMenuComponents/PauseMenuQuitConfirmation.cs" id="10_3fvyd"]
+[ext_resource type="Script" path="res://Script/Overlay/Components/PauseMenuComponents/PauseMenuSettingsPage.cs" id="10_38w6n"]
+[ext_resource type="PackedScene" uid="uid://xanbsjrvxmuc" path="res://Scene/Inventory/inventory.tscn" id="16_t88tf"]
+
+[sub_resource type="Gradient" id="Gradient_gn6rj"]
+offsets = PackedFloat32Array(0, 0.00451467, 0.995485, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.334086, 0.334086, 0.334086, 1, 0.379232, 0.379232, 0.379232, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uy6pk"]
+gradient = SubResource("Gradient_gn6rj")
+
+[sub_resource type="Gradient" id="Gradient_vklua"]
+offsets = PackedFloat32Array(0, 0.00225734)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0.184314, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_df8ah"]
+gradient = SubResource("Gradient_vklua")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1pjro"]
+shader = ExtResource("6_8npgw")
+shader_parameter/strength = 3.5
+shader_parameter/mix_percentage = 0.4
+
+[sub_resource type="LabelSettings" id="LabelSettings_pbuno"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_ofhkb"]
+font_size = 48
+
+[sub_resource type="GDScript" id="GDScript_dyssv"]
+script/source = "extends Node
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func _openPauseMenuEvent() -> void:
+	Wwise.set_state(\"GameStatus\", \"InMenu\")
+
+func _closePauseMenuEvent() -> void:
+	Wwise.set_state(\"GameStatus\", \"InGame\")
+	
+func _exitPauseMenuEvent() -> void:
+	Wwise.set_state(\"GameStatus\", \"InGame\")
+	Wwise.set_state(\"NPC\", \"NotTalking\")
+	Wwise.set_state(\"PlayerState\", \"Lobby\")
+	Wwise.set_state(\"Puzzle\", \"NotDoingPuzzle\")
+
+func _beginTalkToNpcEvent() -> void:
+	Wwise.set_state(\"NPC\", \"Talking\")
+	
+func _stopTalkToNpcEvent() -> void:
+	Wwise.set_state(\"NPC\", \"NotTalking\")
+	
+func _enterPuzzleAreaEvent() -> void:
+	Wwise.set_state(\"Puzzle\", \"DoingPuzzle\")
+
+func _leavePuzzleAreaEvent() -> void:
+	Wwise.set_state(\"Puzzle\", \"NotDoingPuzzle\")
+
+func _changeVolumeValueEvent(value: float) -> void:
+	Wwise.set_rtpc_value_id(AK.GAME_PARAMETERS.VOLUME, value, self)
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_7wedy"]
+font = ExtResource("3_68pl5")
+font_size = 80
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fqghf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_3t3sj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uxy3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dlnj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7r3h2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07cm6"]
+bg_color = Color(0.190762, 0.190762, 0.190762, 0.5)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_xus5w"]
+line_spacing = 0.0
+font = ExtResource("3_68pl5")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_ga3xb"]
+font = ExtResource("3_68pl5")
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_0hv2p")
+
+[node name="Generique" parent="." instance=ExtResource("2_bg6p1")]
+visible = false
+z_index = 10
+
+[node name="AreaTitle" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+script = ExtResource("1_1iobo")
+
+[node name="AreaTitleTimer" type="Timer" parent="AreaTitle"]
+
+[node name="HPBar" type="TextureProgressBar" parent="."]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -291.0
+offset_top = 25.0
+offset_right = -35.0
+offset_bottom = 35.0
+grow_horizontal = 0
+value = 100.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_uy6pk")
+texture_progress = SubResource("GradientTexture1D_df8ah")
+
+[node name="HitEffect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1287.0
+offset_bottom = 729.0
+color = Color(1, 0, 0.0980392, 0.184314)
+
+[node name="PauseMenu" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_1pjro")
+offset_right = 1280.0
+offset_bottom = 720.0
+script = ExtResource("7_wcj5n")
+
+[node name="MainPage" type="Node2D" parent="PauseMenu"]
+visible = false
+script = ExtResource("8_qlfrx")
+
+[node name="Resume" type="Button" parent="PauseMenu/MainPage"]
+offset_left = 259.0
+offset_top = 143.0
+offset_right = 588.0
+offset_bottom = 306.0
+size_flags_horizontal = 4
+icon = ExtResource("7_f02ph")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="PauseMenu/MainPage/Resume"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 30.0
+offset_right = 311.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("3_68pl5")
+theme_override_font_sizes/font_size = 36
+text = "Resume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lan" type="Button" parent="PauseMenu/MainPage"]
+offset_left = 677.0
+offset_top = 340.0
+offset_right = 1006.0
+offset_bottom = 503.0
+size_flags_horizontal = 4
+icon = ExtResource("7_f02ph")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="PauseMenu/MainPage/Lan"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 30.0
+offset_right = 311.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("3_68pl5")
+theme_override_font_sizes/font_size = 36
+text = "enable
+2p mode"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="Button" parent="PauseMenu/MainPage"]
+offset_left = 679.0
+offset_top = 140.0
+offset_right = 1008.0
+offset_bottom = 303.0
+size_flags_horizontal = 4
+icon = ExtResource("7_f02ph")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="PauseMenu/MainPage/Settings"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 30.0
+offset_right = 311.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("3_68pl5")
+theme_override_font_sizes/font_size = 36
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="Button" parent="PauseMenu/MainPage"]
+offset_left = 256.0
+offset_top = 337.0
+offset_right = 585.0
+offset_bottom = 500.0
+size_flags_horizontal = 4
+icon = ExtResource("7_f02ph")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="PauseMenu/MainPage/Exit"]
+modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 30.0
+offset_right = 309.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("3_68pl5")
+theme_override_font_sizes/font_size = 36
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsPage" type="Node2D" parent="PauseMenu"]
+visible = false
+script = ExtResource("10_38w6n")
+
+[node name="Back" type="Button" parent="PauseMenu/SettingsPage"]
+offset_left = 462.0
+offset_top = 460.0
+offset_right = 791.0
+offset_bottom = 623.0
+size_flags_horizontal = 4
+icon = ExtResource("7_f02ph")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="PauseMenu/SettingsPage/Back"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 30.0
+offset_right = 311.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("3_68pl5")
+theme_override_font_sizes/font_size = 36
+text = "Go back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="PauseMenu/SettingsPage"]
+offset_left = 286.0
+offset_top = 335.0
+offset_right = 592.0
+offset_bottom = 352.0
+value = 100.0
+
+[node name="Label" type="Label" parent="PauseMenu/SettingsPage/VolumeSlider"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -81.0
+offset_right = 176.0
+offset_bottom = -4.0
+theme_override_fonts/font = ExtResource("8_sage2")
+theme_override_font_sizes/font_size = 33
+text = "Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="PauseMenu/SettingsPage"]
+offset_left = 725.0
+offset_top = 334.0
+offset_right = 974.0
+offset_bottom = 353.0
+value = 100.0
+
+[node name="Label" type="Label" parent="PauseMenu/SettingsPage/SFXSlider"]
+layout_mode = 0
+offset_left = -52.0
+offset_top = -81.0
+offset_right = 130.0
+offset_bottom = -4.0
+theme_override_fonts/font = ExtResource("8_sage2")
+theme_override_font_sizes/font_size = 33
+text = "SFX
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitConfirm" type="Node2D" parent="PauseMenu"]
+visible = false
+script = ExtResource("10_3fvyd")
+
+[node name="No" type="Button" parent="PauseMenu/QuitConfirm"]
+offset_left = 661.0
+offset_top = 328.0
+offset_right = 1102.0
+offset_bottom = 524.0
+size_flags_horizontal = 4
+icon = ExtResource("7_f02ph")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="PauseMenu/QuitConfirm/No"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 24.0
+offset_right = 416.0
+offset_bottom = 174.0
+theme_override_fonts/font = ExtResource("3_68pl5")
+theme_override_font_sizes/font_size = 36
+text = "No"
+label_settings = SubResource("LabelSettings_pbuno")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Yes" type="Button" parent="PauseMenu/QuitConfirm"]
+offset_left = 138.0
+offset_top = 330.0
+offset_right = 579.0
+offset_bottom = 526.0
+size_flags_horizontal = 4
+icon = ExtResource("7_f02ph")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="PauseMenu/QuitConfirm/Yes"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 24.0
+offset_right = 416.0
+offset_bottom = 174.0
+theme_override_fonts/font = ExtResource("3_68pl5")
+theme_override_font_sizes/font_size = 36
+text = "YES"
+label_settings = SubResource("LabelSettings_pbuno")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu/QuitConfirm"]
+offset_left = 70.0
+offset_top = 27.0
+offset_right = 1216.0
+offset_bottom = 187.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="PauseMenu/QuitConfirm/ColorRect"]
+modulate = Color(0.32, 0.32, 0.32, 1)
+layout_mode = 0
+offset_left = 65.0
+offset_top = 28.0
+offset_right = 1073.0
+offset_bottom = 130.0
+theme_override_fonts/font = ExtResource("3_68pl5")
+theme_override_font_sizes/font_size = 36
+text = "Are you sure you wanna quit?"
+label_settings = SubResource("LabelSettings_ofhkb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node" type="Node" parent="PauseMenu"]
+script = SubResource("GDScript_dyssv")
+
+[node name="Node2D" type="Node2D" parent="PauseMenu"]
+
+[node name="Inventory" parent="." instance=ExtResource("16_t88tf")]
+visible = false
+
+[node name="TransitionScreen" type="ColorRect" parent="."]
+visible = false
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("5_0b01o")
+
+[node name="TransitionText" type="Label" parent="TransitionScreen"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 548.0
+offset_right = 1449.0
+offset_bottom = 739.0
+scale = Vector2(0.8, 0.8)
+text = "Sample text
+"
+label_settings = SubResource("LabelSettings_7wedy")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="WalkingBob" type="CharacterBody2D" parent="TransitionScreen"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TransitionScreen/WalkingBob"]
+position = Vector2(1213.5, 617)
+scale = Vector2(2.46875, 2.34375)
+sprite_frames = SubResource("SpriteFrames_fqghf")
+frame_progress = 0.239075
+
+[node name="Debug" type="Panel" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = -0.01
+anchor_right = 0.025
+anchor_bottom = -0.01
+offset_left = -29.0
+offset_top = 10.2
+offset_right = 88.0
+offset_bottom = 115.2
+scale = Vector2(3.71165, 4.08485)
+theme_override_styles/panel = SubResource("StyleBoxFlat_07cm6")
+script = ExtResource("2_n0hqd")
+
+[node name="DebugText" type="Label" parent="Debug"]
+visible = false
+layout_mode = 0
+offset_left = 1.0
+offset_right = 116.0
+offset_bottom = 105.0
+text = "FPS: xxx
+FRAMes: xxxxxxx
+TestText
+"
+label_settings = SubResource("LabelSettings_xus5w")
+
+[node name="InventoryChat" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 0.031
+anchor_bottom = 0.016
+offset_left = 360.0
+offset_top = 8.0
+offset_right = 826.32
+offset_bottom = 82.48
+label_settings = SubResource("LabelSettings_ga3xb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PauseMenu/MainPage/Resume" to="PauseMenu/MainPage" method="OnResumePressed"]
+[connection signal="pressed" from="PauseMenu/MainPage/Lan" to="PauseMenu/MainPage" method="On2PPressed"]
+[connection signal="pressed" from="PauseMenu/MainPage/Settings" to="PauseMenu/MainPage" method="OnSettingsPressed"]
+[connection signal="pressed" from="PauseMenu/MainPage/Exit" to="PauseMenu/MainPage" method="OnExitPressed"]
+[connection signal="pressed" from="PauseMenu/SettingsPage/Back" to="PauseMenu/SettingsPage" method="OnGoBackPressed"]
+[connection signal="value_changed" from="PauseMenu/SettingsPage/VolumeSlider" to="PauseMenu/MainPage" method="OnVolumeSliderValueChanged"]
+[connection signal="pressed" from="PauseMenu/QuitConfirm/No" to="PauseMenu/QuitConfirm" method="OnNoPressed"]
+[connection signal="pressed" from="PauseMenu/QuitConfirm/Yes" to="PauseMenu/QuitConfirm" method="OnYesPressed"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkpk0tewcyy8s"]
+
+[ext_resource type="PackedScene" uid="uid://cfu1sauy7nuj0" path="res://Scene/Character/smallBob.tscn" id="2_wr1m2"]
+[ext_resource type="Script" path="res://Script/ClientData/GhettoMobSynchronizerManager.cs" id="3_s6f7j"]
+[ext_resource type="PackedScene" uid="uid://dhi8acbis7jt3" path="res://Scene/Character/bigbob.tscn" id="3_y84qy"]
+[ext_resource type="WwiseState" uid="uid://bisymyxc3r082" path="res://Wwise/resources/State/{D9FD0A1F-253F-49DC-832A-D954377C7AB9}.tres" id="4_espsp"]
+
+[node name="Game" type="Node2D"]
+
+[node name="SmallBob" parent="." instance=ExtResource("2_wr1m2")]
+position = Vector2(611, 233)
+
+[node name="BigBob" parent="." instance=ExtResource("3_y84qy")]
+position = Vector2(802, 222)
+
+[node name="GhettoMobSynchronizerManager" type="Node2D" parent="."]
+script = ExtResource("3_s6f7j")
+
+[node name="AkState" type="AkState" parent="."]
+state = ExtResource("4_espsp")
+trigger_on = 2

@@ -1,0 +1,134 @@
+[gd_scene load_steps=17 format=3 uid="uid://dekxi3kthtgqc"]
+
+[ext_resource type="Texture2D" uid="uid://bgxoi71ke7i68" path="res://Assets/Imported/MushroomBoss/Spore.png" id="1_7a0tk"]
+[ext_resource type="Script" path="res://Script/Entities/Enemies/Spore.cs" id="1_bfrpx"]
+[ext_resource type="Script" path="res://Script/Triggers/HitArea.cs" id="2_fmlc7"]
+[ext_resource type="Script" path="res://Script/Entities/Enemies/EnemyGhettoSynchronizer.cs" id="4_lfpqe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wvwq6"]
+radius = 2.23607
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cheq6"]
+atlas = ExtResource("1_7a0tk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hyqr"]
+atlas = ExtResource("1_7a0tk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4yrt"]
+atlas = ExtResource("1_7a0tk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nfan"]
+atlas = ExtResource("1_7a0tk")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbbio"]
+atlas = ExtResource("1_7a0tk")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70nb6"]
+atlas = ExtResource("1_7a0tk")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfeu3"]
+atlas = ExtResource("1_7a0tk")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mwksg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cheq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hyqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4yrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nfan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbbio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70nb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfeu3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_afbey"]
+radius = 6.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_b2u8x"]
+properties/0/path = NodePath("AnimatedSprite2D:flip_h")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("AnimatedSprite2D:animation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:position")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("HitZone:Active")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("AnimatedSprite2D:frame")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath(".:CurrentHp")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fuo8r"]
+
+[node name="Spore" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_bfrpx")
+RightLimit = 4500
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wvwq6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -4)
+sprite_frames = SubResource("SpriteFrames_mwksg")
+autoplay = "default"
+frame_progress = 0.308861
+flip_h = true
+
+[node name="HitZone" type="Area2D" parent="."]
+script = ExtResource("2_fmlc7")
+Damage = 5
+DoDamageToEnemies = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_afbey")
+debug_color = Color(0.91044, 0.210831, 0.529393, 0.42)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_b2u8x")
+script = ExtResource("4_lfpqe")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="HitDelay" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_fuo8r")
