@@ -30,7 +30,6 @@ public partial class NpcDialog : RichTextLabel {
     
     private bool _isShown;
 
-    // private bool _currentLineOverriden;
     protected string CurrentLine;
     
     protected string[] DialogLines;
@@ -88,7 +87,6 @@ public partial class NpcDialog : RichTextLabel {
     }
 
     private void SetTextIndexSafe(int newIndex) {
-        // _currentLineOverriden = false;
         int tempDialogI = newIndex % DialogLines.Length;
         if (tempDialogI < 0)
         {
@@ -98,7 +96,7 @@ public partial class NpcDialog : RichTextLabel {
         if (DialogLines[tempDialogI] == "") {
             CurrentLine = "";
             Text = "";
-            return; // kinda shit way to have the characters stop answering if at empty line.
+            return;
         }
 
         DialogI = tempDialogI;
@@ -153,20 +151,6 @@ public partial class NpcDialog : RichTextLabel {
         }
         
         NextLine();
-
-        // var method = GetType().GetMethod(CurrentLine.Replace("() => ", ""));
-        // if (method is null) {
-        //     GD.PushWarning("Method name from text is null: " + CurrentLine);
-        //     NextLine();
-        //     return;
-        // }
-        //
-        // var funcRes = method.Invoke(this, new object[] { });
-        // if (funcRes is bool and true) {
-        //     // If result is true, do not get a new line instantly.
-        // } else {
-        //     NextLine();
-        // }
     }
 
     public void SetCurrentLineFully(string line) {

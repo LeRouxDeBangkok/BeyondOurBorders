@@ -60,6 +60,5 @@ public partial class GhettoMobSynchronizerManager : Node2D {
             s.PublicVisibility = false;
             s.SetMultiplayerAuthority(Multiplayer.GetUniqueId());
         }
-        // TODO: Should be working, but to check.
     }
 }

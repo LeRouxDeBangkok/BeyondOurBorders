@@ -9,8 +9,6 @@ public partial class AreaTitleComponent : TextureRect
 	
 	public override void _Ready()
 	{
-		// Force the size & ignore scaling so that you can throw any garbage you want at it and itll just always display "the same way"
-		// edit afer: still use a 700x300, otherwise the thing may appear too down.
 		_areaTitleTimer = GetNode<Timer>("AreaTitleTimer");
 		
 		ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
@@ -27,12 +25,9 @@ public partial class AreaTitleComponent : TextureRect
 			_areaTitleTween.Kill();
 		}
 		
-		// Note: abrupt title changes may cause this to abruptly change. Too obscure to fix rn
-		// TODO: use imported images as that doesn't work when exported
 		
 		Texture = ImageTexture.CreateFromImage(Image.LoadFromFile($"res://Assets/Custom/Logo/Logo Bob.png"));//TODO modife en fonction des zones ?
 		
-		// check if timer doesn't cause issues (should be fine from small experiments.)
 		_areaTitleTimer.WaitTime = displayTime;
 		
 		_areaTitleTween = CreateTween();

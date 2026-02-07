@@ -14,9 +14,6 @@ public partial class MultiplayerManager : Node2D {
         GuestId = -1;
     }
     
-    // 127.0.0.1 = local only
-    // 0.0.0.0 = whole network, if port open anyone can join.
-    // [Export] public string BroadcastAddress = "127.0.0.1";
     [Export] public int DefaultPort = 55405;
     
     public bool IsBroadcasting { get; private set; }
@@ -30,8 +27,6 @@ public partial class MultiplayerManager : Node2D {
         
         _peer = new ENetMultiplayerPeer();
         var error = _peer.CreateServer(port, 2);
-        // TODO: Check maxClients
-        // var error = peer.CreateServer(port, 1);
         if(error != Error.Ok){
             GD.PushError("error cannot host! :" + error);
             return;
@@ -39,12 +34,6 @@ public partial class MultiplayerManager : Node2D {
         _peer.Host.Compress(ENetConnection.CompressionMode.RangeCoder);
         Multiplayer.MultiplayerPeer = _peer;
         GD.Print("Lan broadcasting !");
-        
-        // Why that:
-        // If we don't have that, the synchronizer will try synchronizing as soon as we have
-        // the multiplaye setup, but since we don't have the bobs setup yet, this'll
-        // cause the MultiplayerSynchronizer to just not appear
-        // Hence why we disable it from view & re enable once the Bobs are setup correctly.
         Client.Instance.CurrentPlayer!.HideSynchronizer();
         Client.Instance.OtherPlayer!.HideSynchronizer();
     }
@@ -55,9 +44,6 @@ public partial class MultiplayerManager : Node2D {
         Multiplayer.PeerConnected -= PeerConnected;
         Multiplayer.PeerDisconnected -= PeerDisconnected;
         Client.Instance.IsMultiplayer = false;
-        
-        // Host is nulled out after using .Close(), need to save it THEN destroy it (since its Close() that kicks out players)
-        // DIRTY: 0.2 to make sure all previous calls were sent (eg close menus)
         WaitUtils.WaitFor(0.2, () => {
             var host = _peer.Host;
             _peer.Close();
@@ -72,7 +58,6 @@ public partial class MultiplayerManager : Node2D {
         GD.Print("Player Disconnected: " + id.ToString());
         
         Client.Instance.IsMultiplayer = false;
-        // See same as above
         Client.Instance.CurrentPlayer!.HideSynchronizer();
         Client.Instance.OtherPlayer!.HideSynchronizer();
     }
@@ -135,7 +120,6 @@ public partial class MultiplayerManager : Node2D {
 
     public void DisconnectFromHost() {
         _peer.Close();
-        // IMPORTANT: resets the Multiplayer ID to 1, as that's what's used to find the host.
         GetTree().SetMultiplayer(MultiplayerApi.CreateDefaultInterface());
     }
 }

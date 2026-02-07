@@ -12,7 +12,7 @@ public partial class SimpleResizableArea : Area2D
 
     public SimpleResizableArea(string name)
     {
-        // Do nothing, this is for compatibility with the "GodotBuggedResizableArea"
+        
     }
 
     protected bool IsFromThisClient(Node2D body) {

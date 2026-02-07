@@ -5,18 +5,10 @@ using Godot;
 
 namespace Beyondourborders.Script.ClientData;
 
-// How this class works:
-// Godot has a single object (CurrentGameData)
-// which is used to save/load the game.
-// If you want to male it be a new one, use SetCurrentGameData
-// which copies all of the fields without re making one
-// as we NEED the instance to be Godot's one.
+
 public partial class GameData : Node2D {
     public static GameData CurrentGameData { get; private set; } = null!;
     
-    // public List<UnlockableAbility> Abilities = new List<UnlockableAbility>();
-    
-    // to be called ONLY BY GODOT !
     private GameData() {
         CurrentGameData = this;
     }

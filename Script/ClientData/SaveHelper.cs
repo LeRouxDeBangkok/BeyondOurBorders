@@ -12,20 +12,17 @@ public partial class SaveHelper : Node {
 		Instance = this;
 	}
 	
-	// TO BE CALLED ON THE HOST ONLY.
 	public void Save() {
 		Rpc("ShowSaveScreenCommon");
 		TriggerSaveAndEnd();
 	}
 	
-	// will be called using RPC First when you want to save.
 	[Rpc(CallLocal = true)]
 	private void ShowSaveScreenCommon() {
 		Client.Instance.IsSaving = true;
 		Hud.Instance.TransitionScreen.ShowScreen(Client.Instance.IsGuest ? "Host is saving..." : "Saving...");
 	}
-	
-	// Actual save, will be called on the host only.
+
 	private void TriggerSaveAndEnd() {
 		var startTime = Time.Singleton.GetUnixTimeFromSystem();
 		
@@ -40,7 +37,6 @@ public partial class SaveHelper : Node {
 		Rpc("HideSaveScreenCommon");
 	}
 
-	// End, called by the actual save on the host.
 	[Rpc(CallLocal = true)]
 	private void HideSaveScreenCommon() {
 		GD.Print("Done !");
@@ -48,8 +44,6 @@ public partial class SaveHelper : Node {
 		Client.Instance.IsSaving = false;
 	}
 	
-	// Actual saving/loading functions below.
-	// -> https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html
 	public void SaveCurrentGameDataToDiskSkipAllChecks() {
 		var gameData = GameData.CurrentGameData;
 		if (gameData is null) {
@@ -82,7 +76,6 @@ public partial class SaveHelper : Node {
 		
 		var jsonString = saveFile.GetLine();
 
-		// Creates the helper class to interact with JSON.
 		var json = new Json();
 		var parseResult = json.Parse(jsonString);
 		if (parseResult != Error.Ok)
@@ -95,7 +88,7 @@ public partial class SaveHelper : Node {
 
 		try {
 			var content = new GameData(
-				saveNum: (int)nodeData["saveNum"], // Could also just use saveNum.
+				saveNum: (int)nodeData["saveNum"],
 				playTime: (double)nodeData["playTime"],
 				lastCheckpoint: (string)nodeData["lastCheckpoint"],
 				isLevel2DoorOpen: (bool)nodeData["isLevel2DoorOpen"],

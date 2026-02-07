@@ -20,8 +20,6 @@ public partial class CameraTrigger : SimpleResizableArea {
 	[Export] public Vector2 CameraRightOffset { get; set; } = Vector2.Zero;
 	
 	private float middleX;
-	// TODO? : Allow different on leave bottom/top (?)
-	// private float middleY;
 	
 	public CameraTrigger() : base("CameraZoomAreaTrigger") {}
 	

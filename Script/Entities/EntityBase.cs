@@ -33,10 +33,6 @@ public abstract partial class EntityBase : CharacterBody2D
 
     protected AnimationType? CurrentAnimation;
 
-    // TODO: remake private if not used anymore in AreaSwitchTrigger.
-    // This is a different offset than the normal Godot one, here to handle actual player offset
-    // Different from the additional offset used on some transitions.
-    // Tbh this is just an implementation detail, may get removed in favor of CameraObject's offset.
     public int HPMax;
     [Export] public int CurrentHp;
     public EntityBase(float speed, float jumpVelocity, int hp = 100) {
@@ -104,18 +100,17 @@ public abstract partial class EntityBase : CharacterBody2D
         {
             newAnimation = AnimationType.Attack;
         }
-        else if (Velocity.X == 0 && Velocity.Y == 0) // Not moving
+        else if (Velocity.X == 0 && Velocity.Y == 0) 
         {
             newAnimation = AnimationType.Idle;
         }
-        else if (Velocity.Y == 0) { // Moving only horizontally
+        else if (Velocity.Y == 0) { 
             newAnimation = AnimationType.Run;
         }
-        else { // Moving either only vertically or vertically + horizontally
-            newAnimation = AnimationType.None; // Should be AnimationType.Jump - NOT YET IMPLEMENTED
+        else { 
+            newAnimation = AnimationType.None; 
         }
 			
-        // Apply new animation state
         if (newAnimation == AnimationType.None && CurrentAnimation != AnimationType.None)
         {
             // GD.Print("Set animation to None");

@@ -18,7 +18,6 @@ public partial class BetterCamera : Camera2D
 	
 	public void SetZoom(Vector2 newZooms, float duration = 0.5f) 
 	{
-		// Rider fix - avoid float inaccuracies & use Abs instead of just ==.
 		if (Math.Abs((_targetZooms - newZooms).Length()) < 0.01)
 			return;
 		
@@ -30,7 +29,7 @@ public partial class BetterCamera : Camera2D
 		}
 		
 		_zoomTween = CreateTween();
-		_zoomTween.SetTrans(Tween.TransitionType.Quad); // Quad is tbe best looking in my opinion
+		_zoomTween.SetTrans(Tween.TransitionType.Quad);
 		_zoomTween.SetEase(Tween.EaseType.InOut);
 		
 		_zoomTween.TweenProperty(this, "zoom", _targetZooms, duration);
@@ -49,13 +48,13 @@ public partial class BetterCamera : Camera2D
 		}
 		
 		_offsetTween = CreateTween();
-		_offsetTween.SetTrans(Tween.TransitionType.Quad); // Quad is tbe best looking in my opinion
+		_offsetTween.SetTrans(Tween.TransitionType.Quad);
 		_offsetTween.SetEase(Tween.EaseType.InOut);
 		
 		_offsetTween.TweenProperty(this, "offset", newOffset, duration);
 	}
 
-	public void CameraShake(int strength = 30, float fade = 5.0f) // TODO fait vibrer la cam mais j'y arrive pas bob stp j'suis sur en 2min tu le fais
+	public void CameraShake(int strength = 30, float fade = 5.0f)
 	{
 		
 	}

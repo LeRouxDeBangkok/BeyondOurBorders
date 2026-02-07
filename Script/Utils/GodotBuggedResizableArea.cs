@@ -3,19 +3,6 @@ using Godot;
 
 namespace Beyondourborders.Script.Utils;
 
-// Why is this here with this name?
-// Basically this class works entirely, it technically has no problems, it doesn't do
-// anything that shouldn't be normal for Godot.
-// Unfortunately, Tool scripts seem to be VERY buggy with godot.
-// Eg when you recompile something after an error, you'd get an "ObjectDisposedException"
-// which forces you to fully reload Godot.
-// Sometimes you'd also get random errors and the whole thing wasn't stable anyway...
-//
-// This seems to be a regression, as Godot 4.0.3 doesn't seem to have that issue.
-// I doubt this'll get fixed soon, making a proper PR would take too long and
-// making a band aid fix would be annoying + would need rebuilding for all platforms
-// since we use Windows, Linux and MacOS.
-// So for now not using that fancy thing.
 enum Handle
 {
 	TOPRIGHT,

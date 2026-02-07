@@ -37,21 +37,20 @@ public partial class NpcBase : CharacterBody2D {
 	public void OnPlayerLeave(Node2D body) {
 		if (body is PlayerBase p && p == Client.Instance.CurrentPlayer) {
 			var myGDScript = GD.Load<GDScript>("res://Scene/Meta/node.gd");
-			var myGDScriptNode = (GodotObject)myGDScript.New(); // This is a GodotObject.
+			var myGDScriptNode = (GodotObject)myGDScript.New();
 			myGDScriptNode.Call("_stopTalkToNpcEvent");
 			Dialog.FancyHide();
 		}
 	}
 
 	public override void _Process(double delta) {
-		// Note: Kinda unpotimized, should be using signals.
 		if (CurrentPlayerInZoneRight) 
 			Sprite.FlipH = true;
 		else if (CurrentPlayerInZone)
 			Sprite.FlipH = false;
 		
 		var myGdScript = GD.Load<GDScript>("res://Scene/Meta/node.gd");
-		var myGdScriptNode = (GodotObject)myGdScript.New(); // This is a GodotObject.
+		var myGdScriptNode = (GodotObject)myGdScript.New(); 
 		
 		if (CurrentPlayerInZone && Input.IsActionJustPressed("Interact")) {
 			Dialog.NextLine();

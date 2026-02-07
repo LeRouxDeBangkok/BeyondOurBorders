@@ -68,7 +68,6 @@ public partial class Client : Node2D
 		IsLoading = true;
 		Hud.Instance.TransitionScreen.ShowScreen($"Loading {checkpoint.Level}...");
 		
-		// Doing it nested like that is a bit wonky, but it avoids lag on the main thread.
 		new AsyncSceneLoader().Load(
 			"res://Scene/Meta/Game.tscn", (scene, _) => {
 				var big = scene.GetNode<BigBob>("BigBob");
@@ -118,7 +117,6 @@ public partial class Client : Node2D
 		IsLoading = true;
 		Hud.Instance.TransitionScreen.CallDeferred("SetMessage", $"Loading {checkpoint.Level}...");
 		
-		// Doing it nested like that is a bit wonky, but it avoids lag on the main thread.
 		new AsyncSceneLoader().Load(
 			"res://Scene/Meta/Game.tscn", (scene, _) => {
 				var big = scene.GetNode<BigBob>("BigBob");
@@ -203,10 +201,6 @@ public partial class Client : Node2D
 	public void SwitchPlayers(bool force = false) {
 		if (Instance.IsMultiplayer)
 			throw new Exception("Tried to switch players in multiplayer !");
-		// If no delay:
-		// - Players can abuse this
-		// - Mainly, since one bob gets called after the other, the "IsActionJustPressed" is 
-		//   triggered on both at the same frame, making it switch back instantly
 		if (!force && _playerSwitchTimer.TimeLeft > 0)
 			return;
 		
@@ -220,23 +214,18 @@ public partial class Client : Node2D
 		OtherPlayer.UpdateAnimation();
 	}
 	
-	// === Functions to be called with deferred as cant be updated in a physics callback ===
-	// Called when the not main player enters a zone in multiplayer
 	private void SwitchTerrain(Node2D terrain) {
 		var g = GetNode("Game");
 		g.RemoveChild(g.GetNode("terrain"));
 		g.AddChild(terrain);
 	}
 
-	// private void _lastLoadZone
 	private void HandlePlayerHidingMultiplayer(string zoneName) {
 		if (OtherPlayer.Zone == zoneName)
 			OtherPlayer.EnablePlayerOnThisClient();
 		else
 			OtherPlayer.DisablePlayerOnThisClient();
 	}
-	// === End deferred methods ===
-	
 	private void OnDoneZoneLoading(Node2D terrain, object[]? data = null) {
 		GD.Print("Done loading zone, now waiting for loading screen to finish.");
 		WaitUtils.WaitUntil(
@@ -262,7 +251,6 @@ public partial class Client : Node2D
 		
 		Hud.Instance.TransitionScreen.RemoveScreen();
 		IsLoading = false;
-		// TODO: Make camera move instantly if possible.
 	}
 
 	public void LoadZone(string zoneName, Vector2 positionInNewZoneMain, Vector2 positionInNewZoneOther) {
@@ -322,7 +310,6 @@ public partial class Client : Node2D
 					continue;
 				}
                 
-				// Backup:
 				var diff = playerPos.DistanceTo(mob.GlobalPosition);
 				//var diff = Math.Abs(mob.GlobalPosition.X - playerPos.X);
                 

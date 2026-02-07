@@ -19,8 +19,8 @@ public abstract partial class EnemyBase : EntityBase
     protected WeaponBase? Weapon;
     protected HitArea HitZone;
 
-    [Export] public global::Item DroppableItem; // The item to drop
-    [Export] public PackedScene ItemPickupScene; // The ItemPickup scene to instantiate
+    [Export] public global::Item DroppableItem;
+    [Export] public PackedScene ItemPickupScene;
     [Export] public int DropChancePercent;
 
     private bool _isDead = false;

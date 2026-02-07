@@ -102,7 +102,6 @@ public partial class PauseMenu : ColorRect {
 	}
 
 	public void CloseMenuSafe() {
-		// This ensures every node is hidden as it should be.
 		while (Hud.Instance.PauseMenu.IsShown)
 			Hud.Instance.PauseMenu.OnEscapePressed();
 	}

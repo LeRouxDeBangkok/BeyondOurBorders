@@ -17,7 +17,7 @@ public partial class BigBob : PlayerBase
 		speed: 500.0f, 
 		jumpVelocity: -1050.0f,
 		cameraDelay: 0,
-		cameraOffset: new Vector2(100, -100)// Bit to the left since player is always going right.
+		cameraOffset: new Vector2(100, -100)
 		) 
 	{ }
 	protected override void SetCameraAndAuthority()

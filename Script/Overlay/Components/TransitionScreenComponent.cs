@@ -61,7 +61,6 @@ public partial class TransitionScreenComponent : ColorRect {
     {
         Visible = false;
         _walkingBobSprite.Pause();
-        // Shouldn't be required as recreating the tween every time
         _opacityTween.Finished -= DisableViewOnTweenDone;
     }
 }

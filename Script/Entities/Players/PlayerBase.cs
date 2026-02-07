@@ -45,13 +45,7 @@ public abstract partial class PlayerBase : EntityBase {
 				return;
 			}
 
-			// ACTUAL ZONE CHANGING STEP
 			if (Client.Instance.IsMultiplayer) {
-				// If current player, needs to wait to update.
-				// - CurrentPlayer in ZoneA, OtherPlayer in ZoneB.
-				//   if CurrentPlayer switches to ZoneB and the Zone updates instantly,
-				//   it'll show the other player BEFORE the fade in and before the terrain
-				//   is done transitioning.
 				if (this == Client.Instance.CurrentPlayer) {
 					WaitUtils.WaitUntil(
 						() => Client.Instance.IsLoading,
@@ -62,7 +56,6 @@ public abstract partial class PlayerBase : EntityBase {
 					CallDeferred("HandleNewZoneDeferred", value);
 				}
 			}
-			// MULTIPLAYER SYNC STEP
 			if (Client.Instance.IsMultiplayer) {
 				try {
 					GhettoMobSynchronizerManager.Instance.Rpc("RightBeforePlayerChangeZone", this, value);
@@ -134,7 +127,6 @@ public abstract partial class PlayerBase : EntityBase {
 
 					SetCameraAndAuthority();
 		
-		// Band-aid fix - avoid an unwanted animation (eg dash) playing when the player starts
 		PlayerSprite.Play("idle");
 		PlayerSprite.Stop();
 
@@ -201,16 +193,14 @@ public abstract partial class PlayerBase : EntityBase {
 			return;
 		}
 
-		// Wait until it's ready
 		if (!inventory.IsInsideTree())
 		{
-			// Optionally defer
 			GD.Print("Waiting for inventory to be inside tree...");
 			CallDeferred(nameof(Collect), item);
 			return;
 		}
 
-		if (!inventory.IsInitialized()) // You can expose _isInitialized via public getter
+		if (!inventory.IsInitialized())
 		{
 			GD.Print("Inventory not initialized, deferring collect...");
 			CallDeferred(nameof(Collect), item);
@@ -250,20 +240,12 @@ public abstract partial class PlayerBase : EntityBase {
 		}
 	}
 	
-	// Will be called if the current client is in control of the player this is called on.
-	// Eg if in multiplayer and your client controls player1, this will be called on player1.
-	// Eg if in solo and your currently controlled player is player2, this will be called on player2.
 	public void ProcessControlledPhysics(double delta)
 	{
 		var myGDScript = GetTree().Root.GetNode<Client>("Main").GetNode("SoundManager").GetNode("Node");
 		myGDScript.Call("_changeCombatValueEvent", Client.Instance.AggroLevel);
 		if (Client.Instance.IsSingleplayer && (Hud.Instance.PauseMenu.IsShown || Hud.Instance.Inventory.Visible)) 
 		{
-			// Multiplayer = the game continues while the menu is shown
-			// Singleplayer = the game pauses
-			// (doing it just as it is in Minecraft)
-			// NOTE: As of now if in multiplayer you can still control the player while in the menu.
-			// For now keeping it like this as I like it.
 			PlayerSprite.Stop();
 			CurrentAnimation = null;
 			return;
@@ -457,18 +439,12 @@ public abstract partial class PlayerBase : EntityBase {
 			HpBar.Value = CurrentHp;
 		}
 	}
-	
-	// Will be called if in solo and if the current player isn't the main player.
-	// Unlike above which is meant to control the movement based on what the player does,
-	// This is meant for basic physics (gravity) and things like pathfinding.
-	// Eg if in solo and your currently controlled player is player1, this will be called on player2.
 
 	protected bool HasAuthority() {
 		return Multiplayer.GetUniqueId() == MultiplayerSynchronizer.GetMultiplayerAuthority();
 	}
 
 	protected bool IsCurrentPlayer() {
-		// When in solo, both players have the same Multiplayer id, have to compare smth else
 		return this.Name == Client.Instance.CurrentPlayer.Name;
 	}
 	
@@ -478,7 +454,6 @@ public abstract partial class PlayerBase : EntityBase {
 		v.Y += CameraOffset.Y;
 		CameraHistory.Enqueue(v);
 		Vector2? cameraPos = null;
-		// Add a small delay to camera, using a while to handle when the _cameraDelay changes
 		while (CameraHistory.Count > CameraDelay)
 		{
 			cameraPos = CameraHistory.Dequeue().Round();
@@ -528,7 +503,6 @@ public abstract partial class PlayerBase : EntityBase {
 		return !(playerA == playerB);
 	}
 	
-	// Rider overrides: only comparing Names.
 	private bool Equals(PlayerBase other) {
 		return Equals(Name, other.Name);
 	}
@@ -564,20 +538,18 @@ public abstract partial class PlayerBase : EntityBase {
 		{
 			newAnimation = AnimationType.Wall; 
 		}
-		else if (Velocity.X == 0 && Velocity.Y == 0) // Not moving
+		else if (Velocity.X == 0 && Velocity.Y == 0)
 		{
 			newAnimation = AnimationType.Idle;
 		}
 		else if (Velocity.Y == 0) 
-		{ // Moving only horizontally
 			newAnimation = AnimationType.Run;
 		}
-		else // Moving either only vertically or vertically + horizontally
+		else
 		{
 			newAnimation = AnimationType.Jump;
 		}
 			
-		// Apply new animation state
 		if (newAnimation == AnimationType.None && CurrentAnimation != AnimationType.None)
 		{
 			// GD.Print("Set animation to None");

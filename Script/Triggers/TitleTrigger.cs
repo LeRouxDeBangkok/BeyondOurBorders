@@ -11,7 +11,6 @@ public enum Orientation
 	BOTH
 }
 
-// [Tool]
 public partial class TitleTrigger : SimpleResizableArea
 {
 	[Export] public Orientation DisplayTitleOnEnterFrom { get; set; } = Orientation.LEFT;
